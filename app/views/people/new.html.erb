@@ -1,0 +1,13 @@
+<h2>New person</h2>
+<br/>
+<div class="row">
+	<div class="col-md-4">
+		<a href="#" class="btn btn-lg btn-success"  data-toggle="modal" data-target="#peopleModal">Add A Person +</a>
+	</div>
+</div>
+<br/>
+
+<%= link_to 'Back', team_people_path %>
+<% content_for :modal do %>
+  <%= render 'people/form' %>
+<% end %>

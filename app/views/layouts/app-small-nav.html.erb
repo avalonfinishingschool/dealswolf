@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    AlphaDeal - <%= yield(:title).empty? ? 'Sales Pipeline you always dreamed of.' : yield(:title)%>
+  </title>
+  <%= include_gon %>
+  <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "back", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "back", "data-turbolinks-track" => true %>
+  <%= yield :head %>
+  <%= render 'layouts/ga' %>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="page-body" data-team-id="<%= @team.id if @team %>" data-controller="<%= controller_name %>" data-action="<%= action_name %>">
+  <div class="page-container">
+
+    <%= render 'layouts/smallnav'%>
+    <div class="main-content">
+      <%= render 'layouts/mainbar'%>
+      <%= yield %>
+
+
+      <footer class="main">
+          <div class="col-md-6">
+              (C) AlphaDeal 2017
+          </div>
+          <div class="col-md-6">
+            <p class="pull-right">
+              Contact: <a href="mailto:varun@alphadeal.co?Subject=Support">varun@alphadeal.co</a>
+            </p>
+          </div>
+
+      </footer>
+    </div>
+  </div>
+  <div id="allmodals">
+    <%= render 'deals/form' %>
+    <%= render 'people/form' %>
+    <%= render 'organizations/form' %>
+    <%= render 'activities/form' %>
+  </div>
+</body>
+</html>

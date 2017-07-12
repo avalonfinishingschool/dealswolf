@@ -1,0 +1,78 @@
+<h2>Team Settings</h2>
+<br/>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-info">
+
+		<div class="panel-heading clearfix">
+			<i class="icon-calendar"></i>
+			<h3 class="panel-title">Edit Team details</h3>
+		</div>
+
+      	<div class="panel-body">
+
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6">
+					<h5><strong>Current Currency Extension:</strong>
+			    	<%= Currency.find(@team.currency_id).extension %>
+				</h5>
+				</div>
+			</div>
+			<br/>
+			<%= simple_form_for(@team) do |f| %>
+				<%= f.error_notification %>
+
+				<div class="row">
+				    <div class="col-md-offset-3 col-md-6">
+				    	<%= f.input :currency_id, include_blank:false, class:"form-control", label: "Change Currency Extension", required: false, collection:Currency.all, label_method: lambda { |obj| t("#{obj.extension}") }, :selected => @team.currency_id %>
+				    </div>
+				</div>
+				<br/>
+				<div class="row">
+				    <div class="col-md-offset-3 col-md-6">
+				      	<div class="form-actions">
+				        	<%= f.button :submit, class:'btn btn-info btn-block' %>
+				      	</div>
+				    </div>
+				</div>
+
+			<% end %>
+		</div>
+	</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+	 	<div class="panel panel-default">
+            <div class="panel-heading">
+            	<h3 class="panel-title">Quick Stats</h3>
+            </div>
+	        <div class="panel-body">
+
+	        	<div class="tile-title tile-green">
+	        		<div class="icon">
+	        			<i class="entypo-infinity"></i>
+	        			<h3><%=Plan.find(@team.plan_id).name %></h3>
+	        		</div>
+	        		<div class="title">
+	        			<h3>Current Plan</h3>
+	        			<br/>
+	        		</div>
+		        </div>
+	        </div>
+		</div>
+	</div>
+
+	<div class="col-md-8">
+
+ 		<div class="panel panel-default">
+            <div class="panel-heading clearfix">
+            	<h3 class="panel-title">Actions</h3>
+            </div>
+            <div class="panel-body">
+            	<%= link_to (raw("<div class='tile-title tile-red'><div class='icon'><i class='entypo-key'></i><h3>Destroy Team</h3></div><div class='title'><h3>(This cannot be undone)</h3><br/></div></div>")), @team, :method => :delete, :confirm => "Sure? This will delete everything!" %>
+			</div>
+		</div>
+	</div>
+</div>

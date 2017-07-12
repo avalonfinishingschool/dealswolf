@@ -1,0 +1,57 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title">Organizations</h3>
+  </div>
+
+  <div class="panel-body">
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <%= link_to 'Add an Organization +', new_team_organization_path, class: 'btn btn-primary' %>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <table class="table table-condensed table-striped table-bordered table-hover no-margin">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Added by</th>
+              <th>People</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% if form_organizations.blank? %>
+              <tr>
+                <td colspan="6" class="text-center">You don't have any organizations in your contacts.</td>
+              </tr>
+            <% else %>
+              <% form_organizations.each do |organization| %>
+                <tr>
+                  <td><strong><%= link_to organization.name, edit_team_organization_path(@team, organization)%></strong></td>
+                  <td><%= organization.address %></td>
+                   <td><%= organization.phone %></td>
+                  <td><%= User.find(organization.user_id).email %></td>
+                  <td><%= organization.people.count %></td>
+                  <td><%= link_to 'Delete', team_organization_path(@team, organization), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<% content_for :modal do %>
+  <%= render 'organizations/form' %>
+<% end %>

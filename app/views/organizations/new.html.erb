@@ -1,0 +1,12 @@
+<h2>New organization</h2>
+<br/>
+<div class="row">
+	<div class="col-md-4">
+		<a href="#" class="btn btn-lg btn-success"  data-toggle="modal" data-target="#orgModal">Add an Organization +</a>
+	</div>
+</div>
+<br/>
+<%= link_to 'Back', team_organizations_path %>
+<% content_for :modal do %>
+  <%= render 'organizations/form' %>
+<% end %>

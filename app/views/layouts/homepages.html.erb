@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+   AlphaDeal - <%= yield(:title).empty? ? 'Sales Pipeline you always dreamed of.' : yield(:title)%>
+  </title>
+  <%= include_gon %>
+  <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.googleapis.com/css?family=Oxygen:400,300,700|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800" rel="stylesheet" type="text/css">
+  <%= stylesheet_link_tag    "front", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "front", "data-turbolinks-track" => true %>
+  <%= yield :head %>
+  <%= render 'layouts/ga' %>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= display_meta_tags :description => "The simplest tool to manage your customers, sales and deals. We're completely free for startups!" %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/ie8' %>
+</head>
+
+
+<%if controller_name == "registrations" || controller_name == "sessions" || controller_name == "passwords"%>
+  <body class="patternbackground">
+<% else %>
+<body>
+<%end%>
+
+ <% flash.each do |key, value| %>
+        <div class="alert alert-warning"><%= value %></div>
+      <% end %>
+
+
+    <!--###############################-->
+    <!--PRELOADER #####################-->
+    <!--###############################-->
+
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--###############################-->
+    <!--HOME ##########################-->
+    <!--###############################-->
+<%= yield %>
+
+
+  </body>
+</html>

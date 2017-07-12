@@ -1,0 +1,64 @@
+<div class="col-md-4">
+<div class="sectiona">
+	<h2>Deals</h2>
+	<hr/>
+	<h3>Total Deals: <strong><%= @deals.count %></h3>
+	<h3>Total Deals Won: <strong><%= @deals.where(:status => "Won").count %></h3>
+	<h3>Total Deals Lost: <strong><%= @deals.where(:status => "Lost").count %></h3>
+	<h3>Total Deals Pending: <strong><%= @deals.where(:status => "Pending").count %></h3>
+<br/><br/><br/>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="sectiona">
+	<h2>Activities</h2>
+	<hr/>
+	<h3>Total Activites: <strong><%= @team.activities.count %></h3>
+	<h3>Total Activites Completed: <strong><%= @activities.where(:done => true ).count %></h3>
+	<h3>Total Pending Activities: <strong><%= @activities.where(:done => false ).count %></h3>
+	<h3>Activity Breakup: <strong><%@activities.includes(:type).flat_map(&:type).uniq.each do |t|  %></h3>
+	<h3><%= t.name %> (<%=@activities.where(:type_id => t.id).count %>)</h3>
+	<% @activities.where(:type_id => t.id).each do |l| %>
+		<%= l.name %> <br/>
+		<%end %>
+	<%end %>
+	<br/><br/><br/>
+
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="sectiona">
+	<h2>Contacts</h2>
+	<hr/>
+	<h3>Total People: <strong><%= @people.count %></h3>
+	<h3>Total Organizations: <strong><%= @organizations.count %></h3></h3>
+	<br/><br/><br/>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="sectiona">
+	<h2> Win vs Loss </h2>
+	<% if  @deals.where(:status => "Won").count + @deals.where(:status => "Lost").count == 0 %>
+		You don't have enough data for this calculation.
+		<%else %>
+	<span style="color:green"><%= (@deals.where(:status => "Won").count/(@deals.where(:status => "Won").count +  @deals.where(:status => "Lost").count)) * 100%>%</span> versus
+	<span style="color:red"><%= (@deals.where(:status => "Lost").count/(@deals.where(:status => "Won").count +  @deals.where(:status => "Lost").count)) * 100%>%</span>
+	<%end%>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="sectiona">
+	<h2>Most deals by:</h2>
+	<% if @deals.count > 0 %>
+	<%arr = @deals.flat_map(&:user_id)%>
+	<% arr.inject(Hash.new(0)) { |h,v| h[v] += 1; h } %>
+	<%= User.find(arr.group_by{|i| i}.max{|x,y| x[1].length <=> y[1].length}[0]).email %>
+	<%else%>
+	<p> Not enough data </p>
+	<%end%>
+</div>
+</div>

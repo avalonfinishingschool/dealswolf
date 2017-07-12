@@ -1,0 +1,186 @@
+<br/>
+<div class="row">
+  <div class="col-md-4">
+    <h2 style="margin-top: 0px;">Statistics</h2>
+    <p>View your team's statistics here.</p>
+  </div>
+  <div class="col-md-6 pull-right">
+    <p>Set Timeframe:</p>
+    <form action="<%= stats_team_path %>" method="get">
+      <div class="col-md-5 remove-padding">
+        <%= text_field_tag :time_start, nil, class: 'monthfirst form-control', placeholder: "Start Date"%>
+        </div>
+      <div class="col-md-5 remove-padding">
+      <%= text_field_tag :time_end, nil, class: 'monthfirst form-control', placeholder: "End Date" %>
+      </div>
+      <%= submit_tag 'Search', class: 'col-md-2 btn btn-primary' %>
+    </form>
+  </div>
+</div>
+<% if @deals.count > 0 %>
+<br/>
+<div class="row">
+
+  <div class="col-md-3">
+    <div class="tile-block tile-aqua">
+      <div class="tile-header">
+        Deals Summary
+      </div>
+      <div class="tile-content">
+        <h1 class="tile-content-header text-center">
+          <% earned = @deals.where(:status => "Won").flat_map(&:value).reduce(:+) %>
+          <%= if earned
+            earned
+          else
+            0
+          end %> / <span><%= @deals.flat_map(&:value).reduce(:+) %></span>
+        </h1>
+        <p class="grey text-center">(Earned / Total Worth)</p>
+        <br/>
+        <ul>
+          <li>
+            <h4 class="tile-content-header"><strong>Deals Pending</strong>: <%= @deals.where(:status => "Pending").count %></h4>
+          </li>
+          <li>
+            <h4 class="tile-content-header"><strong>Deals Won</strong>: <%= @deals.where(:status => "Won").count %></h4>
+          </li>
+          <li>
+            <h4 class="tile-content-header"><strong>Deals Lost</strong>: <%= @deals.where(:status => "Lost").count %></h4>
+          </li>
+          <li>
+            <h4 class="tile-content-header">
+              <strong>Conversion Rate</strong>:
+              <%= (@deals.where(:status => "Won").count * 100)/(@deals.count) rescue 0%> %
+            </h4>
+          </li>
+        </ul>
+      </div>
+      <div class="tile-footer">
+        <div class="icon text-center">
+          <i class="entypo-chart-line"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="tile-progress tile-green">
+      <div class="tile-header">
+        <h3>Deals Won</h3>
+      </div>
+      <div class="tile-progressbar">
+        <span data-fill="<%= @deals.where(:status => "Won").count*100/@deals.count rescue 0%>%" style="width: <%= @deals.where(:status => "Won").count*100/@deals.count rescue 0%>%"></span>
+      </div>
+      <div class="tile-footer">
+        <h4>
+          <span class="pct-counter"><%= @deals.where(:status => "Won").count*100/@deals.count rescue 0%></span>
+          %
+        </h4>
+        <span>Deals Won: <%= @deals.where(:status => "Won").count %></span>
+      </div>
+    </div>
+
+    <div class="tile-progress tile-orange">
+      <div class="tile-header">
+        <h3>Deals Pending</h3>
+      </div>
+      <div class="tile-progressbar">
+        <span data-fill="<%= @deals.where(:status => "Pending").count*100/@deals.count rescue 0%>%" style="width: <%= @deals.where(:status => "Pending").count*100/@deals.count rescue 0%>%"></span>
+      </div>
+      <div class="tile-footer">
+        <h4>
+          <span class="pct-counter"><%= @deals.where(:status => "Pending").count*100/@deals.count rescue 0%></span>
+          %
+        </h4>
+        <span>Deals Pending: <%= @deals.where(:status => "Pending").count %></span>
+      </div>
+    </div>
+
+    <div class="tile-progress tile-red">
+      <div class="tile-header">
+        <h3>Deals Lost</h3>
+      </div>
+      <div class="tile-progressbar">
+        <span data-fill="<%= @deals.where(:status => "Lost").count*100/@deals.count rescue 0%>%" style="width: <%= @deals.where(:status => "Lost").count*100/@deals.count rescue 0%>%"></span>
+      </div>
+      <div class="tile-footer">
+        <h4>
+          <span class="pct-counter"><%= @deals.where(:status => "Lost").count*100/@deals.count rescue 0%></span>
+          %
+        </h4>
+        <span>Deals Lost: <%= @deals.where(:status => "Lost").count %></span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-3">
+    <div class="tile-block tile-purple">
+      <div class="tile-header">
+        Activities Stats
+      </div>
+      <div class="tile-content">
+        <h2 class="tile-content-header text-center">
+          Total Activites: <strong><%= @team.activities.count %></strong>
+        </h2>
+        <br/>
+        <ul>
+          <li>
+            <h4 class="tile-content-header"><strong>Completed</strong>: <%= @activities.where(:done => true ).count %></h4>
+          </li>
+          <li>
+            <h4 class="tile-content-header"><strong>Pending</strong>: <%= @activities.where(:done => false ).count %></h4>
+          </li>
+          <li>
+            <h4 class="tile-content-header"><strong>Breakup</strong>: <%@activities.includes(:type).flat_map(&:type).uniq.each do |t|  %></h4>
+              <h4 class="tile-content-header"><%= t.name %> (<%=@activities.where(:type_id => t.id).count %>)</h4>
+            <%end %>
+          </li>
+        </ul>
+        <br/><br/><br/>
+      </div>
+      <div class="tile-footer">
+        <div class="icon text-center">
+          <i class="entypo-chart-bar"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="tile-block tile-cyan">
+      <div class="tile-header">
+        Star Performer
+      </div>
+      <div class="tile-content">
+        <h3 class="tile-content-header text-center">Most deals by:</h3>
+          <% if @deals.count > 0 %>
+            <%arr = @deals.flat_map(&:user_id)%>
+            <% arr.inject(Hash.new(0)) { |h,v| h[v] += 1; h } %>
+            <p class="text-center"><%= User.find(arr.group_by{|i| i}.max{|x,y| x[1].length <=> y[1].length}[0]).email %></p>
+          <%else%>
+            <p class="text-center"><i>There is not enough data for this calculation.</i></p>
+          <%end%>
+      </div>
+      <div class="tile-footer">
+        <div class="icon text-center">
+          <i class="entypo-chart-area"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<%else%>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          You need atleast 1 deal to see statistics.
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>
+

@@ -1,0 +1,13 @@
+<div class="col-md-offset-2 col-md-8 nested-fields">
+  	<%=  f.input :name do%>
+  		<div class="input-group">
+	  		<%= f.input_field :name, class: 'dynamic_field input-lg' %>
+	  		<span class="input-group-btn">
+	  			<%=  link_to_remove_association 'x', f , class:"btn btn-danger btn-lg" %>
+	  		</span>
+	  	</div>
+  	<% end %>
+  	<div style="font-size: 35px" class="text-center">
+  		<i class="entypo-down-open"></i>
+  	</div>
+</div>

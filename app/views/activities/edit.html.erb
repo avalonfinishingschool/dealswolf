@@ -1,0 +1,5 @@
+<h1>Editing activity</h1>
+<% content_for :modal do %>
+  <%= render 'activities/form' %>
+<% end %>
+<%= link_to 'Back',  team_activities_path(@team), class: "btn btn-warning" %>

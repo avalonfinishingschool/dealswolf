@@ -1,0 +1,78 @@
+== README
+
+
+= 2-12-2013
+- Visibilities check for ALL
+- 2 visibilities, 1(Global), 2(Only Me)
+- Statistics down for the moment.
+
+= 30-12-2013
+- Tomorrow is new years!
+- Added Phone to organization and Phone and Email nested models.
+- Please add MODALS!
+- Added People and Organizations, nested resources.
+
+= 29-12-2013
+- Fixed datetimepicker issue on date fields in forms.
+- Started building activities.
+- Changed contact_id to person_id in activites **MIGRATE**
+- Built the form and controller for activities.
+
+= 27-12-2013
+- Added deals CRUD
+- Plan limited user inviting
+- Added an expiry date system although it does nothing at the moment.
+- Bullet has an N+1 issue. must fix soon.
+- Made some model changes involving person and organization id.
+
+
+= 24-12-2013
+- Users can add, delete other users into their teams.
+- Users can see all the teams they belong to when they log in
+- Permissions and stuff
+
+= 23-12-2013 Later that day
+- Made sure nav changes when in a teamcontroller page and otherwise
+- Added friendly id to teams
+- Users can create teams
+- List of user teams and teams that user is a part of
+- Show action redirects to "Deals" action of teamscontroller
+- Working on Invite members atm.
+- Added authorization to view a team 
+- Added a bunch of new routes.
+
+
+= 23-12-2013
+- Added charts to appropriate Models in Rails Admin
+- Prevented Admin from seeing certain models
+- Prevented Admin from tampering with user data. Cannot delete or edit users, teams or deals. **Doesn't work** Opened an issue will fix whenever
+
+
+
+= 23-12-2013
+-Added factories(up to date)
+- Added renewal_date to team model
+- Made and linked join table
+- Cleaned up uneccesary colums, string columns to integer, etc
+- Added some validations for Plan,types, users, admins, currency
+
+= 22-12-2013 Later that day
+- Added models from Engineering Assessment except File. Look at the schema and make the appropriate changes.
+
+= 22-12-2013 15:57
+- Added Admin backend.
+- Need to prevent Admin from readig personal data of Users
+
+= 21-12-2013 16:30
+- Added Type, Plan and Currency models
+
+
+= 19-12-2013 8:16
+- Fixed Specs, fully configured
+- Bootstrap/less workaround completed
+- Added home controller, 4 views, added a navbar with links to these 4
+- Fixed root to index
+- Added devise(and secret key) for Admins and users. Removed registerable for Admin.
+- Removed unicorn.rb for now, giving me some kind of issue.
+- Added signup, sign in links, made them look half decent
+- Bug? Views in browser loading slightly slowly, WEBrick is fine(13ms)

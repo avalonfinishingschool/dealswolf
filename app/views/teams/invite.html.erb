@@ -1,0 +1,56 @@
+<br/>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Team Members</h3>
+  </div>
+  
+  <div class="panel-body">
+    
+    <h4 class="text-center"> Your team's plan is <i><%= @team.plan.name %></i> with a limit of <strong><%= @team.plan.number_users %></strong> members. You are currently using <strong><%=@team.users.count + 1 %>/<%= @team.plan.number_users %></strong>. </h4>
+    <br/>
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <table class="table table-condensed table-striped table-bordered table-hover no-margin">
+
+          <tr>
+            <td style="padding-left: 25px;"><strong>Admin</strong>: <%= @team.creator.email %></td>
+          </tr>
+
+          <% @members.each do |member| %>
+            <tr>
+              <td style="padding-left: 25px;"><strong>Member</strong>: <%=member.email%> &nbsp;&nbsp;&nbsp;&nbsp; <span class="pull-right" style="padding-right: 25px;"><%if current_user == @team.creator %><%=link_to "Remove Member", remove_team_path(:user_id => member.id)%><%end %></span></td> 
+            </tr>
+          <%end%>
+
+          <% @pending_invites.each do |invite| %>
+            <tr>
+              <td style="padding-left: 25px;"><strong>Pending</strong>: <%= invite.email%></td>
+            </tr>
+          <%end%>
+
+        </table>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <%if @team.creator == current_user %>
+          <h3 class="text-center"> Invite a member to this team by email </h3>
+          <%= form_tag add_member_team_path , :method => 'post', :id => "gs" do %>
+            <p>
+            <div class="input-group">
+              <%= text_field_tag :add, params[:add], class: 'form-control' %>
+              <br/>
+              <div class="input-group-btn">
+              <%= submit_tag "Add", class: "btn btn-success" %>
+              </div>
+            </div>
+            </p>
+          <% end %>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

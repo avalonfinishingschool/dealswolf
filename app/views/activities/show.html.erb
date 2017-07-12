@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @activity.name %>
+</p>
+
+<p>
+  <strong>Deal:</strong>
+  <%= @activity.deal_id %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @activity.team_id %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= Person.find(@activity.person_id).name if @activity.person_id%>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= Organization.find(@activity.organization_id).name if @activity.organization_id%>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @activity.type_id %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @activity.note %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @activity.date %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @activity.length %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @activity.user_id %>
+</p>
+
+<p>
+  <strong>Done:</strong>
+  <%= @activity.done %>
+</p>
+
+<%= link_to 'Edit', edit_team_activity_path(@team, @activity) %>

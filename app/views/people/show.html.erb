@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @person.name %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= Organization.find(@person.organization_id).name if @person.organization %>
+</p>
+<p>
+  <strong>Organization:</strong>
+  <%= Organization.find(@person.organization_id).name if @person.organization %>
+</p>
+<p>
+  <strong>Phones:</strong> <br/>
+  <%@person.phones.each do |e| %>
+  <%= e.number %> <br/>
+  <%end %>
+</p>
+<p>
+  <strong>Emails:</strong><br/>
+  <%@person.emails.each do |e| %>
+  <%= e.value %> <br/>
+  <%end %>
+</p>
+<p>
+  <strong>Added by:</strong>
+  <%= User.find(@person.user_id).email %>
+</p>
+
+<p>
+  <strong>Visibility:</strong>
+  <%= Visibility.find(@person.visibility_id).name %>
+</p>
+
+<%= link_to 'Edit', edit_team_person_path(@team, @person) %>

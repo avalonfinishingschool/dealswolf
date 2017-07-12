@@ -1,0 +1,15 @@
+<%= form_tag search_team_path , :method => 'get', remote: true, :autocomplete => "off", :id => "gs" , :class => "navbar-form navbar-left" do %>   
+<div>
+	<span class="glyphicon glyphicon-search"></span>
+	<%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Super Search" %>
+	<div id="groups">
+		<%= render 'teams/search_results'%>
+	</div>
+</div>
+ <li id="search">
+        <form method="get" action="#">
+          <input type="text" name="q" class="search-input" placeholder="Search something..." />
+          <button type="submit"><i class="entypo-search"></i></button>
+        </form>
+      </li>
+<% end %>

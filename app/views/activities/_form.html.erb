@@ -1,0 +1,104 @@
+<% if !@activity.blank? %>
+  <div id="activityModal" class="modal fade <%= 'open'.html_safe if @modal %>">
+    
+    <div class="modal-dialog">
+      
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Activity</h4>
+        </div>
+
+        <div class="modal-body">
+
+          <%= simple_form_for([@activity.team, @activity], html: { class: "form-horizontal form-groups-bordered"}, defaults: { required: false, label_html: { class: 'control-label' }}) do |f| %>
+          
+            <%= f.error_notification %>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :name %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :deal_id, :collection => form_deals,  label_method: lambda { |obj| t("#{obj.title}") } %>
+              </div>
+            </div>
+
+             <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :person_id do %>
+                <div class="input-group">
+                  <%= f.input_field :person_id, :collection => @team.people, class: 'add-side-btn' %>
+                  <span class="input-group-btn">
+                  <%= link_to "+", new_team_person_path, type: 'button', class: 'btn btn-success' %>
+                  </span>
+                </div>
+
+                <% end %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :organization_id do %>
+                <div class="input-group">
+                  <%= f.input_field :organization_id, :collection => @team.organizations, class: 'add-side-btn' %>
+                <span class="input-group-btn">
+                  <%= link_to "+", new_team_organization_path, type: 'button', class: 'btn btn-success' %>
+                </span>
+                </div>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :type_id, :include_blank => false , :collection => Type.all,  label_method: lambda { |obj| t("#{obj.name}") } %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :note, as: :text %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :date,:as => :datetime_picker, input_html: {class: "activity_date"} %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :length, label: "Amount of time (in hours)" %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :user_id, :collection => all_users(@team), :include_blank => false, label: 'User Responsible', label_method: lambda { |obj| obj.email } %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :done, as: :boolean %>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-actions">
+            <%= f.button :submit, class:"btn btn-primary", remote: true, method: :post %>
+          </div>
+        </div>
+      <% end %>
+        
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+<% end %>

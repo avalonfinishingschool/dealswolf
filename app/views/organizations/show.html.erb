@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @organization.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @organization.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @organization.phone %>
+</p>
+
+
+<p>
+  <strong>Added by:</strong>
+  <%= User.find(@organization.user_id).email %>
+</p>
+
+
+<p>
+  <strong>Visibility:</strong>
+  <%= Visibility.find(@organization.visibility_id).name %>
+</p>
+
+<%= link_to 'Edit', edit_team_organization_path(@team, @organization) %>

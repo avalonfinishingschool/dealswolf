@@ -1,0 +1,56 @@
+<div class="page-title">
+
+        <div class="row ">
+        
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <h2><%= action_name.capitalize %></h2>
+            <ul class="breadcrumb">
+              <li><%= controller_name.capitalize %></li>
+              <li><%= action_name.capitalize %></li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            
+            <!-- Mini Nav Right Start -->
+            <ul id="page-settings">
+
+              <li id="reportrange" >
+                <i class="icon-calendar"></i>
+                <span></span> <b class="caret"></b>
+              </li>
+
+              <%= content_tag :a, href: stats_team_path(:time_start => Time.now.beginning_of_month.strftime("%C%y\-%m\-%d"), :time_end => Time.now.end_of_month.strftime("%C%y\-%m\-%d")) do %>
+              <li>
+                <i class="icon-cog"></i>
+              </li>
+              <% end %>
+            </ul>
+            <!-- Mini Nav Right End -->
+
+            <!-- Stats Start -->
+            <ul class="stats hidden-sm hidden-xs">
+              <!-- <li>
+                <span id="orders" class="graph"></span>
+                <div class="details">
+                  <span class="big">2,591</span>
+                  <span class="small">Orders</span>
+                </div>
+              </li> -->
+              <li>
+                <span id="currentBalance" class="graph"></span>
+                <div class="details">
+                <% if @deals %>
+                  <span class="big"><%= @deals.flat_map(&:value).reduce(:+) %></span>
+                  <span class="small"><%= @deals.first.currency.extension rescue 0 %></span>
+                  <span class="small">Value</span>
+                <% end %>
+                </div>
+              </li>
+            </ul>
+            <!-- Stats End -->
+
+          </div>
+        </div>
+      </div>
+      <!-- Page title end -->

@@ -1,0 +1,140 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/Varun/Documents/dreamdeal/app/models/admin.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/models/user.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/helpers/activities_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/helpers/admin_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/helpers/application_helper.rb": [
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/helpers/currencies_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/helpers/deals_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/helpers/home_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/helpers/organizations_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/helpers/people_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/helpers/plans_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/helpers/stages_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/helpers/teams_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/helpers/types_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/helpers/visibilities_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Varun/Documents/dreamdeal/app/models/team.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1389628914
+  }
+}

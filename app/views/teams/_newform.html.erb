@@ -1,0 +1,62 @@
+<%= simple_form_for(@team) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <%= f.input :name, class:"form-control", label: "Team name *", required: false %>
+      <p class="text-center">You cannot change your team name later.</p>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <%= f.input :currency_id, include_blank:false, class:"form-control", id: "currency", label: "Currency Extension", required: false, collection:Currency.all, label_method: lambda { |obj| t("#{obj.extension}") } %>
+      <p class="text-center">This is not for the payment. You can change the currency extension later in 'Team Settings'</p>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <%= f.input :plan_id, class:"form-control", label: "Plan", required: false, collection:Plan.all, include_blank:false %>
+      <p class="text-center">For now, we just have a single plan with a limit of <strong>10 users</strong>. Contact us at <strong>varun@alphadeal.co</strong> if you are looking for premium plans.</p>
+    </div>
+  </div>
+  
+  <form action="teams/create" method="POST">
+        <!-- Note that the amount is in paise = 50 INR -->
+          <script
+            src="https://checkout.razorpay.com/v1/checkout.js"
+            data-key="rzp_test_XUV6lfCGGqsp5N"
+            data-currency="INR"
+            data-amount="100" 
+            data-buttontext="Pay and Create Team"
+            data-name="alphadeal"
+            data-description="Grande plan purchase"
+            data-image="<%="../../assets/logo_alt_alt.png"%>"
+            data-prefill.name=""
+            data-prefill.email=""
+            data-theme.color="#F37254"
+          ></script>
+          <div class="col-md-offset-2 col-md-3" id="submit">
+            <input type="hidden" value="Hidden Element" name="hidden">
+          </div>
+  </form>
+
+
+  <br/>
+  <!--<div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <div class="form-actions">
+        <%= f.button :submit, class:'btn btn-info btn-block' %>
+      </div>
+    </div>
+  </div>-->
+<script>
+  $('.razorpay-payment-button').click(function(){
+   if($('#team_name').val() == ''){
+      alert('Team Name can not be left blank. Please fill team name and resubmit');
+      window.location.href = ""
+   }
+});
+</script>   
+<% end %>

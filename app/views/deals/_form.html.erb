@@ -1,0 +1,115 @@
+<% if !@deal.blank? %>
+  <div id="dealModal" class="modal fade <%= 'open'.html_safe if @modal %>" aria-hidden="true">
+
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Deal</h4>
+        </div>
+
+        <div class="modal-body">
+
+          <%= simple_form_for([@deal.team, @deal], html: { class: "form-horizontal form-groups-bordered"}, defaults: { required: false, label_html: { class: 'control-label' }}) do |f| %>
+
+
+            <%= f.error_notification %>
+
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :person_id do %>
+                <div class="input-group">
+                  <%= f.input_field :person_id, :collection => @team.people, include_blank: false, class: 'add-side-btn' %>
+                  <span class="input-group-btn">
+                  <%= link_to "+", new_team_person_path, type: 'button', class: 'btn btn-success' %>
+                  </span>
+                </div>
+
+                <% end %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :organization_id do %>
+                <div class="input-group">
+                  <%= f.input_field :organization_id, :collection => @team.organizations, include_blank: false, class: 'add-side-btn' %>
+                <span class="input-group-btn">
+                  <%= link_to "+", new_team_organization_path, type: 'button', class: 'btn btn-success' %>
+                </span>
+                </div>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :email %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :phone %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :title %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :value %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :start_date, :as => :datetime_picker%>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :close_date, :as => :datetime_picker %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :status, collection:['Pending', 'Won','Lost'], :include_blank => false %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :visibility_id, collection: Visibility.all,:include_blank => false %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :stage_id, :collection => @team.stages, :include_blank => false %>
+              </div>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <div class="form-actions">
+            <%= f.button :submit, class:"btn btn-primary", remote: true, method: :post %>
+          </div>
+        </div>
+
+      <% end %>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+<% end %>

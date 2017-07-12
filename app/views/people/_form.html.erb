@@ -1,0 +1,77 @@
+<% if !@person.blank? %>
+  <div id="peopleModal" class="modal fade <%= 'open'.html_safe if @modal %>" aria-hidden="true">
+
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Add a Person</h4>
+        </div>
+
+        <div class="modal-body">
+
+          <%= simple_form_for([@person.team, @person], html: { class: "form-horizontal form-groups-bordered"}, defaults: { required: false, label_html: { class: 'control-label' }}) do |f| %>
+
+            <%= f.error_notification %>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+              <%= f.input :name %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :organization_id, :collection => @team.organizations %>
+              </div>
+            </div>
+
+            <%= f.simple_fields_for :phones do |phone| %>
+              <%= render 'phone_fields', :f => phone %>
+            <%end%>
+
+            <div class="row">
+                <div class="links">
+                  <br/>
+                  <%= link_to_add_association 'Add Phone Number', f, :phones, class: "btn btn-success col-md-8 col-md-offset-2" %>
+                </div>
+            </div>
+
+            <br/>
+
+            <%= f.simple_fields_for :emails do |email| %>
+              <%= render 'people/email_fields', :f => email %>
+            <%end%>
+
+            <div class="row">
+              <div class="links">
+                <br/>
+                <%= link_to_add_association 'Add Email ID', f, :emails, class: "btn btn-success col-md-8 col-md-offset-2" %>
+              </div>
+            </div>
+
+            <br/>
+            <br/>
+
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8">
+                <%= f.input :visibility_id, collection: Visibility.all,:include_blank => false %>
+              </div>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <div class="form-actions">
+            <%= f.button :submit, class:"btn btn-primary", remote: true, method: :post %>
+          </div>
+        </div>
+
+      <% end %>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+<% end %>

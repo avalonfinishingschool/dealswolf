@@ -1,0 +1,312 @@
+
+    <section id="home">
+    <div class="container">
+        <div class="row">
+            <div id="homescreen" class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+                 <div id="logo"><a href="#home"><%=link_to(image_tag("logo_alt_alt.png",class: "logo-centered"), root_path) %></a></div>
+                 <div id="logo_header"></div>
+                 <div id="slogan"><h1>The simplest tool you need to close deals.</h1>
+                 <p> "Think of it like Trello for sales deals. It's so simple even my mother could use!" - Chris Baker, Director, Zion Web Design</p>                 <a href="#" class="cta1" id="button_more">Learn More</a>
+                 <%= link_to "Sign Up", new_user_registration_path, class: "cta2", id:"button_download" %>
+                 <%= link_to "Login", new_user_session_path, class: "cta1", id:"button_more" %>
+                 <br/>
+                 <br/>
+                 <br/>
+
+                 <br/>
+                 <br/>
+                 <%= image_tag "homescreen.png", class: "img-responsive", id:"home-image"%>
+            </div> <div class="clearfix"></div>
+        </div>
+    </div>
+    </section>
+
+
+    <!--###############################-->
+    <!--ABOUT #########################-->
+    <!--###############################-->
+ 
+    <section id="about">
+        <div class="container">
+
+
+            <div class="row" id="about_intro">
+                <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" >
+
+                    <h1>Built for Simplicity</h1>
+                <br/>
+                <br/>
+                </div>
+            </div>
+
+            <div class="row" >
+
+                <div class="col-sm-4 col-md-4 col-lg-4" id="service_1">
+                    
+                    <i style="text-align: center;
+    font-size: 100px;
+    color: #fe8a4d; margin-top:40px; margin-bottom:30px;" class="fa fa-superpowers"></i>
+                    <h3>We're simple yet powerful</h3>
+                    <p>With 3+ years of experience in building and scaling small businesses, we know exactly what you need. AlphaDeal is simple to use, but we've packed it with everything you need to keep your business ticking.
+                    </p>
+                </div>
+
+                <div class="col-sm-4 col-md-4 col-lg-4" id="service_2">
+                   
+                     <i style="text-align: center;
+    font-size: 100px;
+    color: #fe8a4d; margin-top:40px; margin-bottom:30px;" class="fa fa-dashboard"></i>
+                    <h3>Metrics that matter</h3>
+                    <p>Waiting for email updates from your team is a thing of the past. In 2 clicks, get a bird's eye view of everything happening in your team and focus on the details that count.
+                    </p>
+                </div>
+
+                <div class="col-sm-4 col-md-4 col-lg-4" id="service_3">
+                  
+                     <i style="text-align: center;
+    font-size: 100px;
+    color: #fe8a4d; margin-top:40px; margin-bottom:30px;" class="fa fa-unlock"></i>
+                    <h3>$7 / mo. No Limits</h3>
+                    <p>Pricing tiers should never come in the way of your work. And that's why for just $7/month, you get unlimited deals, team members & contacts on AlphaDeal. Sign up and start hustling!</p>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <hr/>
+
+
+    <!--###############################-->
+    <!--Features 1 ####################-->
+    <!--###############################-->
+
+    <section id="features_1">
+        <div class="container">
+            <div class="row"  >
+                <div class="col-sm-6 col-md-6  col-lg-6">
+                  <%= image_tag "features1b.png", class: "img-responsive image_back" ,id: "feature1a_image"%>
+                </div>
+
+                <div class="col-sm-6 col-md-6 col-lg-6" id="features_1_content">
+                    <h2>Simple Pipeline Management</h2>
+                    <p>We have gone to great lengths to make this simple to use. Use your mouse to move deals around. Perfect for your startup's sales and marketing team!
+                    </p>
+                    <div class="feature">
+
+                        <div>
+                            <h4>Add your own stages</h4>
+                            <p>Think you need another stage? Go ahead and add more. It's so simple, a lightbulb could use it!</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+
+                        <div>
+                            <h4>Personal Deals</h4>
+                            <p>Don't want to show your team what you're working on? Each member can create personal deals too and can share it only when they're ready.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <hr/>
+
+    <!--###############################-->
+    <!--Features 2 ####################-->
+    <!--###############################-->
+
+    <section id="features_2">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-6 col-md-6 col-lg-6" id="features_2_content">
+                    <h2>All you want from a CRM</h2>
+                    <p>Customer Relationship Management in it's simplest form. Add Activities, People and Organizations and link them together!
+                    </p>
+                         <div class="feature">
+
+                        <div>
+                            <h4>Add your activities</h4>
+                            <p>Ever called a client only to find out they've been contacted by a colleague an hour ago? Ever forget about a meeting and lose a big potential client? Keep track of upcoming activities and schedule them for your team with AlphaDeal.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div>
+                            <h4>Add your Contacts</h4>
+                            <p>All your customers are in one place. AlphaDeal.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div>
+                            <h4>Export to CSV</h4>
+                            <p>If you're an excel person, today's your lucky day. Export all your information to Excel. One click.</p>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="col-sm-6 col-md-6  col-lg-6" >
+                  <%= image_tag "features2a.png", class: "img-responsive image_back" ,id: "feature2a_image"%>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--###############################-->
+    <!--Features 3 ####################-->
+    <!--###############################-->
+
+    <section id="features_3">
+        <div class="container">
+            <div class="row" id="features_3_intro">
+                <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" >
+                    <h2>Like Statistics?</h2>
+                    <p>We like playing the numbers game too!
+                    </p>
+                </div>
+            </div>
+
+            <div class="row" >
+                <div class="col-sm-4 col-md-4 ol-lg-4" id="features_3_content_left">
+
+                    <div class="feature">
+                        <h4>See how many deals you're actually winning.</h4>
+                        <p>Know all the numbers and how your pipeline is looking in the stats dashboard.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+
+                        <h4>Add upto 10 members.</h4>
+                        <p>We don't allow teams beyond 10 members because we're primarily geared towards early stage startups. Contact us at <b>support@alphadeal.co</b> if you're looking for a premium plan.
+                        </p>
+                    </div>
+
+
+                </div>
+
+                <div class="col-sm-4 col-md-4 ol-lg-4" id="features_3_content_center">
+                    <%= image_tag "features3_alt.png", class: "img-responsive image_back" ,id: "feature3_image"%>
+                </div>
+
+                <div class="col-sm-4 col-md-4 ol-lg-4" id="features_3_content_right">
+
+                     <div class="feature">
+                        <h4>EagleView</h4>
+                        <p>See who's winning what. EagleView helps you stay up to date on what your team's been upto. In one view!
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <h4>Why are you still reading?</h4>
+                        <p>We use AlphaDeal for our startup and we think you should too, especially if you want something cheap and simple. Give us a spin and make our dev team happy. <br/><%= link_to "Click here to sign up.", new_user_registration_path %>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+<section id="features_2" style="background-color:#272727; color:white;">
+        <div class="container" >
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading" style="margin-bottom:5px;">Pricing</h2>
+                    <p style="margin-bottom:20px;"><i>Why we're pricing AlphaDeal aggressively</i></p>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <div class="big-number">
+                        <h1 style="font-size:150px; line-height:150px;">$7</h1>
+                        <p>per month for unlimited users, <br>(billed annually)</p>
+                    </div>
+                </div>
+                <div class="col-md-8 why5-explained">
+                    <p class="text-muted">Before AlphaDeal, we built <a href="https://www.jobspire.net" target="_blank">Jobspire</a> - a revolutionary hiring platform for new-age companies and talent. What started out as a small pilot project ended up being India's #1 startup jobs platform with over 4 million visits in the span of a year and enviable traction on both sides of the market. We eventually sold the company to a firm in NY, but our thirst for venture wasn't exactly...quenched.<br><br>We used countless different CRM and Sales tools through our journey growing Jobspire, but something always came in the way of any particular tool becoming our only tool - unnecessary pricing structures, bloated features, complicated interfaces and just plain expensive for a team our size. It became a question of too expensive and too bloated for something that should fundamentally be simple and affordable for everyone to use. 
+                    <br><br>Every tool your team uses should help you keep your business running, and none of them should ever come in the way of exponential growth. They should be packed with all basic features you need, come at a price that makes sense and have insanely good customer support available. This is what we learnt, this is what we don't you want to spend time learning through your journey, and this is exactly why we're pricing AlphaDeal at just <b>$7/month</b>.</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!--###############################-->
+    <!--Gallery #######################-->
+    <!--###############################-->
+
+
+
+    <!--###############################-->
+    <!--Newsletter and Footer #########-->
+    <!--###############################-->
+
+    <section id="footer">
+        <div class="container">
+            <div class="row" id="newsletter">
+                <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" >
+
+                    <h2 class="end-of-search">"The first CRM tool I've used that required no training"</h2>
+                    <p>- Abhinav Chhikara, <b>Housing.com</b>
+                    </p>
+
+                    <%= link_to "Sign Up", new_user_registration_path, class: "cta2", id:"button_download" %>
+                    <%= link_to "Login", new_user_session_path, class: "cta1", id:"button_more" %>
+
+                </div>
+            </div>
+
+           <div class="row">
+               <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1" id="share">
+
+                   <p class="undertext">Copyright &copy; 2017<a href="http://dreamdeal.herokuapp.com"> <b>AlphaDeal</b></a></p>
+
+               </div>
+           </div>
+
+        </div>
+    </section>
+
+
+    <!-- JavaScript plugins comes here -->
+    <script type="text/javascript">
+        $('document').ready(function(){
+                $('#subscribe-form').ajaxForm( {
+                target: '#preview',
+                success: function() {
+                      $('#subscribe-form').slideUp('slow');
+                      $('#preview').css({"opacity":"1"});
+                    }
+                });
+            });
+    </script>
+

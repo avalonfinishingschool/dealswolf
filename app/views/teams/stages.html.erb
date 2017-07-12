@@ -1,0 +1,21 @@
+<h1>Add, remove or edit stages</h1>
+<p> Note: Removing or renaming stages can affect deals they are associated with. Proceed with caution.</p>
+<br/>
+<%= simple_form_for @team, html: { class: "form-horizontal form-groups-bordered"}, defaults: { required: false, label_html: { class: 'control-label' }} do |f| %>
+	<%= f.simple_fields_for :stages do |stage|%>
+		<%= render 'stage_fields', :f => stage %>
+	<%end%>
+	<div class="links col-md-4 col-md-offset-4">
+			<%= link_to_add_association 'Add another stage', f, :stages, class: 'btn btn-lg btn-success btn-block' %>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<br/>
+			<br/>
+			<br/>
+			<%= f.button :submit, class: "btn btn-lg btn-gold btn-block" %>
+			<br/>
+			<br/>
+		</div>
+	</div>
+<%end%>

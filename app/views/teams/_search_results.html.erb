@@ -1,0 +1,38 @@
+
+<strong>Deals</strong><br/>
+<% if @deals_search %>
+<% if @deals_search.count > 0 %>
+
+<%@deals_search.each do |d|%>
+<%= link_to  d.title, team_deal_path(@team, d)  %> <br/>
+<%end%>
+<%else%>
+No deals found.<br/>
+<%end%>
+<%end %>
+<br/>
+
+<strong>People</strong><br/>
+<% if @people_search %>
+<% if @people_search.count > 0 %>
+
+<%@people_search.each do |d|%> 
+<%= link_to d.name , edit_team_person_path(@team, d)%><br/>
+<%end%>
+<%else%>
+No people found.<br/>
+<%end%>
+<%end %>
+
+<br/>
+<strong>Organizations</strong><br/>
+<% if @or_search %>
+<% if @or_search.count > 0 %>
+
+<%@or_search.each do |d|%>
+<%= link_to d.name, edit_team_organization_path(@team, d) %><br/>
+<%end%>
+<%else%>
+No organizations found.<br/>
+<%end%>
+<%end %>

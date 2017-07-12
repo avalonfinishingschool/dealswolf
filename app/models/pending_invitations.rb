@@ -1,0 +1,2 @@
+class PendingInvitations < ApplicationRecord
+end

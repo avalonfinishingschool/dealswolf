@@ -1,0 +1,7 @@
+<h1>Editing <%= @organization.name %>'s details</h1>
+
+<% content_for :modal do %>
+  <%= render 'organizations/form' %>
+<% end %>
+
+<%= link_to 'Back', team_organizations_path(@team), class: "btn btn-warning" %> 

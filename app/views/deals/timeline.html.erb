@@ -1,0 +1,30 @@
+<%= render 'actionbar' %>
+<div class="scroll-body" id="<%= @team.friendly_id %>">
+    <% @deals_by_month.each do |monthname, deals| %>
+        <div class="scroll-column droppable">
+            <h4 class="label-p stage-title"><strong><%= monthname %></strong></h4>
+            <% deals.each do |deal| %>
+            <div id="<%= deal.id %>" class="panel panel-default scroll-item timed draggable" data-stage-id="<%= deal.stage_id %>">
+              <div class="panel-sub-heading">
+              <% if deal.status=='Won' %>
+              <p class="label label-success pull-left lab">WON</p>
+              <%elsif  deal.status=='Lost' %>
+               <p class="label label-danger pull-left lab">LOST</p>
+              <%else%>
+              <p class="label label-warning pull-left lab">PENDING</p>
+              <%end%>
+
+          <a href="#"><%= time_ago_in_words deal.created_at %> ago</a>
+        </div>
+            <div class="daily-stats">
+
+                <h4 class="d-title"><%= link_to deal.title, team_deal_path(@team, deal)%></h4>
+                <h4 class="number"><%= deal.value %> <%= deal.currency.extension %></h4>
+                </div>
+
+            </div>
+            <% end %>
+
+        </div>
+    <% end %>
+</div>

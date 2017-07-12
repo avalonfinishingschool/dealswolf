@@ -1,0 +1,57 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading clearfix">
+    <i class="entypo-chart"></i>
+      <h3 class="panel-title">People</h3>
+  </div>
+
+  <div class="panel-body">
+    <div class="row">
+    <div class="col-md-12">
+    <%= link_to 'Add a Person +', new_team_person_path, class: 'btn btn-primary' %>
+    <%# TODO Add Google Contacts
+    =link_to (raw('<span>Add from Google Contacts</span>&nbsp;<i class="entypo-google-circles"></i>')), contacts_push_url,  class: "btn btn-gold" %>
+    </div>
+    </div>
+    <br/>
+    <div class="row">
+    <div class="col-md-12">
+<table class = "table table-condensed table-striped table-bordered table-hover no-margin">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Organization</th>
+      <th>Added by</th>
+      <th>Deals Associated</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if form_people.blank? %>
+      <tr>
+        <td colspan="6" class="text-center">You don't have any people in your contacts.</td>
+      </tr>
+    <% else %>
+      <% form_people.each do |person| %>
+        <tr>
+          <td><strong><%= link_to person.name, edit_team_person_path(@team, person) %></strong></td>
+           <td><%= person.emails.flat_map(&:value).join(", ") %></td>
+          <td><%= person.organization.name if person.organization %></td>
+          <td><%= User.find(person.user_id).email %></td>
+           <td><%= Deal.where(:person_id => person.id).count %></td>
+          <td><%= link_to 'Delete', team_person_path(@team, person), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<br>
+<% content_for :modal do %>
+  <%= render 'people/form' %>
+<% end %>

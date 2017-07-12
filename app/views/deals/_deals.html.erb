@@ -1,0 +1,63 @@
+<div class="panel panel-primary">
+
+  <div class="panel-heading">
+    <div class="panel-title">
+      Deals Dashboard
+    </a>
+    </div>
+  </div>
+
+  <div class="panel-body deals-body min-htw">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+          <a href="#" class="btn btn-gold"  data-toggle="modal" data-target="#dealModal">
+            Add A Deal +
+          </a>
+          <%= link_to "Switch to All Deals view", team_deals_path(view_mode: "all"), class: "btn btn-primary" %>
+             <br/> <br/>
+        </div>
+        <br/>
+    </div>
+
+    <div class="scroll-body" id="<%= @team.friendly_id %>">
+
+      <% @team.stages.all.each do |stage| %>
+
+        <div id="<%= stage.id %>" class="scroll-column droppable">
+
+          <h4 class="label-p stage-title"><p style="font-weight: 200; text-align:center; font-size:15px; padding-top:5px; padding-bottom:5px; color: #3b5998;font-family: "Noto Sans", sans-serif, "Helvetica Neue", Helvetica, Arial, sans-serif;"><%= stage.name %> (Total: <%= Currency.find(@team.currency_id).extension %> <%= number_with_delimiter(show_visible_unarchived_deals(stage).flat_map(&:value).reduce(:+)) || 0%> ) </p></h4>
+
+          <% show_visible_unarchived_deals(stage).each do |deal| %>
+
+            <div id="<%= deal.id %>" class="tile-stats tile-<%= "#{dealcolor(deal.status, deal.archived)}" %> draggable notransition" data-stage-id="<%= deal.stage_id %>">
+              <div class="num"><%= link_to deal.title, team_deal_path(@team, deal)%><%= link_to (raw('<i class="entypo-erase"></i>')), team_deal_path(@team, deal), method: :delete, data: { confirm: 'Are you sure?' }, class: 'pull-right' %></div>
+              <%= link_to "#{time_ago_in_words(deal.created_at)} ago", edit_team_deal_path(@team, deal) %>
+              <h5 class="number"><%= number_with_delimiter(deal.value) %> <%= Currency.find(@team.currency_id).extension %></h5>
+              <h5 class="number"><%= deal.organization.name if deal.organization %></h5>
+              <h5 class="number deal-btn-stack">
+                <%= link_to (raw("<i class='entypo-folder'></i>Archive")), team_deal_archive_path(@team, deal), class: 'deal-btn'%>
+
+                <% if deal.status == 'Won' %>
+
+                <% elsif deal.status == 'Lost' %>
+                 <% elsif deal.status == 'Pending' %>
+                  <%= link_to (raw("<i class='entypo-thumbs-up'></i>Won")), team_deal_status_path(@team, deal, status: "Won"), class: 'deal-btn' %>
+                  <%= link_to (raw("<i class='entypo-thumbs-down'></i>Lost")), team_deal_status_path(@team, deal, status: "Lost"), class: 'deal-btn' %>
+                <% end %>
+              </h5>
+            </div>
+
+          <% end %>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>
+<% content_for :modal do %>
+  <%= render 'deals/form' %>
+<% end %>

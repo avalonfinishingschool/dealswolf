@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-6 col-sm-8 clearfix">
+
+    <ul class="list-inline links-list pull-left">
+
+      <li class="make_big">
+        <%= @team.name if @team%> <span class="arrow_sub">&#x25b6;</span>
+        <%= action_name.capitalize unless action_name == "index" %>
+        <%= "AlphaDeal" unless @team %>
+        <% if notice %>
+        &nbsp;[<%= notice  %>]
+        <% end %>
+      </li>
+  </div>
+
+  <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+
+    <ul class="list-inline links-list pull-right">
+
+      <%if user_signed_in?%>
+        <li class="user-info">
+          Logged in as <%=current_user.email%> &nbsp;
+        </li>
+        <li>
+          <%=link_to (raw('<i class="entypo-logout"></i><span>Logout</span>')), destroy_user_session_path, method: :delete %>
+        </li>
+      <%elsif admin_signed_in?%>
+        <li class="user-info">
+          Logged in as <%=current_admin.email%> &nbsp;
+        </li>
+        <li>
+          <%=link_to (raw('<i class="entypo-logout"></i><span>Logout</span>')), destroy_admin_session_path, method: :delete %>
+        </li>
+      <% end %>
+
+
+    </ul>
+  </div>
+</div>

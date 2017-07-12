@@ -1,0 +1,32 @@
+ <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+              <h3 class="panel-title">Payment</h3>
+            </div>
+            <div class="panel-body">
+
+<h2>Your subscription has ended</h2>
+<h4>Please pay and renew your subscription</h4>
+
+<% if current_user == @team.creator %>
+<form action="" method="POST">
+        <!-- Note that the amount is in paise = 50 INR -->
+          <script
+            src="https://checkout.razorpay.com/v1/checkout.js"
+            data-key="rzp_test_XUV6lfCGGqsp5N"
+            data-currency="INR"
+            data-amount="100" 
+            data-buttontext="Pay with Razorpay"
+            data-name="alphadeal"
+            data-description="Grande plan purchase"
+            data-image="<%="../../assets/logo_alt_alt.png"%>"
+            data-prefill.name=""
+            data-prefill.email=""
+            data-theme.color="#F37254"
+          ></script>
+          <div class="col-md-offset-2 col-md-3">
+            <input type="hidden" value="Hidden Element" name="hidden">
+          </div>
+  </form>
+  <% else %>
+  <h4 align="center"> Please ask team creator to renew subscription </h4>
+  <%end%>

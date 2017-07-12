@@ -1,0 +1,145 @@
+<% content_for :head do %>
+ <%= javascript_include_tag 'flot/custom/donut-pie-chart' %>
+<%end%>
+
+<h1>Eagle View</h1>
+<p class="gray"> View each team member's performance. </p>
+<br/>
+
+<div class="row">
+
+<% if current_user == @team.creator %>
+  <div class="col-md-12">
+
+    <div class="panel panel-success">
+
+      <div class="panel-heading clearfix">
+        <i class="icon-bar-chart"></i>
+        <h3 class="panel-title">Your performance</h3>
+      </div>
+      
+      <div class="panel-body">
+
+        <table class="table table-condensed table-striped table-bordered table-hover no-margin">
+
+          <tr>
+            <th></th>
+            <th>Deals won</th>
+            <th>Deals lost</th>
+            <th>Total deals</th>
+          </tr>
+
+          <tr>
+          	<td><%= @team.creator.email %></td>
+          </tr>
+
+          <tr>
+            <td><strong>All time</strong></td>
+            <td><%= @team.deals.where(:user_id => @team.creator.id).where(:status => 'Won').count %></td>
+            <td><%= @team.deals.where(:user_id => @team.creator.id).where(:status => 'Lost').count %></td>
+            <td><%= @team.deals.where(:user_id => @team.creator.id).count %></td>
+          </tr>
+          
+          <tr>
+            <td><strong>This month</strong></td>
+            <td><%= @team.deals.where(:user_id => @team.creator.id).where(:status => 'Won').where(["created_at >= ?", Date.today.at_beginning_of_month]).count %></td>
+          <td>
+          <%= @team.deals.where(:user_id => @team.creator.id).where(["created_at >= ?", Date.today.at_beginning_of_month]).where(:status => 'Lost').count %>
+          </td>
+          <td>
+          <%= @team.deals.where(:user_id => @team.creator.id).where(["created_at >= ?", Date.today.at_beginning_of_month]).count %>
+          </td>
+          </tr>
+
+
+          <tr>
+            <td><strong>This year</strong></td>
+            <td><%= @team.deals.where(:user_id => @team.creator.id).where(:status => 'Won').where(["created_at >= ?", Date.today.at_beginning_of_year]).count %></td>
+            <td><%= @team.deals.where(:user_id => @team.creator.id).where(["created_at >= ?", Date.today.at_beginning_of_year]).where(:status => 'Lost').count %></td>
+            <td><%= @team.deals.where(:user_id => @team.creator.id).where(["created_at >= ?", Date.today.at_beginning_of_year]).count %></td>
+          </tr>
+        
+        </table>
+      </div>
+    </div>
+  </div>
+<%end %>
+
+<!-- <div class="col-md-4 col-sm-4 col-sx-12">
+
+  <div class="panel panel-success">
+
+    <div class="panel-heading clearfix">
+      <h3 class="panel-title">Donut Pie Chart</h3>
+    </div>
+
+    <div class="panel-body">
+      <div id="donutHover"></div>
+      <div id="donutPieChart" class="chart-height"></div>
+    </div>
+
+  </div>
+</div> -->
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h2>Your team's performance</h2>
+
+      <br/>
+      <div class="panel panel-info">
+
+        <div class="panel-heading">
+          <h3 class="panel-title">Member performance</h3>
+        </div>
+
+        <div class="panel-body">
+
+          <table class="table table-condensed table-striped table-bordered table-hover no-margin">
+            
+            <tr>
+              <th></th>
+              <th>Deals won</th>
+              <th>Deals lost</th>
+              <th>Total deals</th>
+            </tr>
+
+            <% @members.each do |m| %>
+
+              <tr>
+              	<td><%= m.email %></td>
+              </tr>
+
+              <tr>
+                <td><strong>All time</strong></td>
+                <td><%= @team.deals.where(:user_id => m.id).where(:status => 'Won').count %></td>
+                <td><%= @team.deals.where(:user_id => m.id).where(:status => 'Lost').count %></td>
+                <td><%= @team.deals.where(:user_id => m.id).count %></td>
+              </tr>
+
+              <tr>
+                <td><strong>This month</strong></td>
+                <td><%= @team.deals.where(:user_id => m.id).where(:status => 'Won').where(["created_at >= ?", Date.today.at_beginning_of_month]).count %></td>
+                <td><%= @team.deals.where(:user_id => m.id).where(["created_at >= ?", Date.today.at_beginning_of_month]).where(:status => 'Lost').count %></td>
+                <td><%= @team.deals.where(:user_id => m.id).where(["created_at >= ?", Date.today.at_beginning_of_month]).count %></td>
+              </tr>
+
+              <tr>
+                <td><strong>This year</strong></td>
+                <td><%= @team.deals.where(:user_id => m.id).where(:status => 'Won').where(["created_at >= ?", Date.today.at_beginning_of_year]).count %></td>
+                <td><%= @team.deals.where(:user_id => m.id).where(["created_at >= ?", Date.today.at_beginning_of_year]).where(:status => 'Lost').count %></td>
+                <td><%= @team.deals.where(:user_id => m.id).where(["created_at >= ?", Date.today.at_beginning_of_year]).count %></td>
+              </tr>
+
+              <tr>
+                <% @team.deals.where(:user_id => m.id).first(3).each do |de|%>
+                  <td>Member's latest 3 deals: <%=link_to de.title, team_deal_path(@team, de)%> </td>
+                <%end%>
+              </tr>
+
+            <%end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

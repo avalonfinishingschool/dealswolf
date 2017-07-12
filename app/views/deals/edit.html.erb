@@ -1,0 +1,7 @@
+<h1>Editing deal</h1>
+
+<% content_for :modal do %>
+  <%= render 'deals/form' %>
+<% end %>
+
+<%= link_to 'Back', team_deals_path(@team), class: "btn btn-warning" %>

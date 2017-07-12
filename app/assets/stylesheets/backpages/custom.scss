@@ -1,0 +1,41 @@
+// Deals Dashboard
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
+}
+
+.scroll-body {
+	white-space: nowrap;
+	overflow-x: scroll;
+  position: static;
+}
+
+.scroll-column {
+	width: 24.75%;
+	margin:0;
+	display: inline-block;
+	vertical-align: top;
+	min-height: 525px;
+  background-color: #cfcefd;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.tile-stats {
+  z-index: 5;
+  cursor: move;
+  &.ui-draggable-dragging {
+    z-index: 10;
+  }
+}
+
+.tile-gray {
+  .num a {
+    color: #777!important;
+  }
+  border: 1px solid #777;
+}

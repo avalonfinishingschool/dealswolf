@@ -1,0 +1,143 @@
+<div class="row clearfix">
+	<div class="col-md-12 column">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="navbar-header">
+				 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">AlphaDeal</a>
+			</div>
+			
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+
+				<%if not user_signed_in? %>
+
+				  <li class="active"><%= link_to "Home", root_url %></li>
+				  <li><%= link_to "Overview", overview_url %></li>
+				  <li><%= link_to "About", about_url %></li>
+
+				<%elsif user_signed_in? && current_page?(controller: "devise/registrations", action: "edit") %>
+
+				<%elsif user_signed_in? && params[:controller] = 'teams' && !current_page?(controller: 'teams', action: 'index')  && !current_page?(controller: 'teams', action: 'new') && !current_page?(root_url) %>
+
+				  <%if @team.id %>
+
+				  <li><%= link_to "Deals", team_deals_url(@team) %></li>
+				  <li><%= link_to "Activities", team_activities_url(@team) %></li>
+
+				  <li class="dropdown">
+				    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contacts <b class="caret"></b></a>
+				    <ul class="dropdown-menu">
+				      <li><%= link_to "People", team_people_url(@team) %></li>
+				      <li><%= link_to "Organizations", team_organizations_url(@team) %></li>
+				    </ul>
+				  </li>
+				  <li class="dropdown">
+				    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Management <b class="caret"></b></a>
+				    <ul class="dropdown-menu">
+				      <li><%= link_to "Statistics", stats_team_url(:time_start => Time.now.beginning_of_month.strftime("%C%y\-%m\-%d"), :time_end => Time.now.end_of_month.strftime("%C%y\-%m\-%d")) %></li>
+				      <li><%= link_to "Members", invite_team_url %></li>
+				      <li><%= link_to "Personal Settings", edit_user_registration_url %></li>
+				      <%if current_user == @team.creator %>
+				        <li><%= link_to "Team Settings", settings_team_url %></li>
+				        <li><%= link_to "Export", export_team_url %></li>
+				        <li><%= link_to "Stages", stages_team_url %></li>
+				        <li><%= link_to "Eagle View", eagleview_team_url %></li>
+				    <%end %>
+				    </ul>
+				  </li>
+				  <%end%>
+				<%end%>
+				</ul>
+
+				<%if admin_signed_in?%>
+				   <ul class="nav navbar-nav navbar-right">
+				   Logged in as <%=current_admin.email%> &nbsp; 
+				    <%=link_to "Admin Functions", admin_path, class: "btn btn-warning navbar-btn" %>
+				    <%=link_to "Logout(Admin)", destroy_admin_session_path, class: "btn btn-default navbar-btn", method: :delete %>
+				  </ul>
+				<%else%>
+				    <% unless user_signed_in? %>
+				      <ul class="nav navbar-nav navbar-right">
+				        <%=link_to "Sign Up", new_user_registration_path, class: "btn btn-success navbar-btn" %>
+				        <%=link_to "Sign In", new_user_session_path, class: "btn btn-default navbar-btn" %>
+				        &nbsp;
+				      </ul>
+				      <%else%>
+				      <ul class="nav navbar-nav navbar-right">
+				      <%= link_to "myTeams", teams_url, class: "btn btn-warning navbar-btn" %>
+				        <%=link_to "Logout", destroy_user_session_path, class: "btn btn-success navbar-btn", method: :delete %>
+				        &nbsp;
+				      </ul>
+				    <%end%>
+				<%end%>
+			</div>
+			
+		</nav>
+		<div class="jumbotron">
+			<h1>
+				Hey!
+			</h1>
+			<p>
+				This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+			</p>
+			<p>
+				<a class="btn btn-primary btn-large" href="#">Learn more</a>
+			</p>
+		</div>
+	</div>
+</div>
+<div class="row clearfix">
+	<div class="col-md-6 column">
+		<h2>
+			Heading
+		</h2>
+		<p>
+			Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+		</p>
+		<p>
+			<a class="btn" href="#">View details »</a>
+		</p>
+	</div>
+	<div class="col-md-6 column">
+		<img alt="140x140" src="http://lorempixel.com/140/140/" />
+	</div>
+</div>
+<div class="row clearfix">
+	<div class="col-md-6 column">
+		<h2>
+			Heading
+		</h2>
+		<p>
+			Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+		</p>
+		<p>
+			<a class="btn" href="#">View details »</a>
+		</p>
+	</div>
+	<div class="col-md-6 column">
+		<img alt="140x140" src="http://lorempixel.com/140/140/" />
+	</div>
+</div>
+<div class="row clearfix">
+	<div class="col-md-6 column">
+		<h2>
+			Heading
+		</h2>
+		<p>
+			Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+		</p>
+		<p>
+			<a class="btn" href="#">View details »</a>
+		</p>
+	</div>
+	<div class="col-md-6 column">
+		<img alt="140x140" src="http://lorempixel.com/140/140/" />
+	</div>
+</div>
+<div class="row clearfix">
+	<div class="col-md-12 column">
+	</div>
+</div>
+<div class="row clearfix">
+	<div class="col-md-12 column">
+	</div>
+</div>

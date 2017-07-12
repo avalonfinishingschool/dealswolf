@@ -1,0 +1,1 @@
+json.extract! @deal, :id, :contact_name, :company, :title, :value, :currency_id, :close_date, :start_date, :status, :phone, :visibility_id, :email, :user_id, :team_id, :stage_id, :created_at, :updated_at

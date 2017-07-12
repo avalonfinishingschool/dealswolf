@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1>Export to Excel</h1>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h5>All your data in Excel CSV format</h5>
+        </div>
+      </div>
+
+      <div class="panel-body">
+
+        <br/>
+        
+        <br/>
+
+
+        <div class="col-sm-3">
+          <div class="tile-title tile-red">
+            <div class="icon">
+            <%= link_to (raw('<i class="entypo-suitcase"></i>'.html_safe)), export_deals_path(@team, :format => :csv),  data: { "no-turbolink" => true } %>
+              
+            </div>
+            <div class="title">
+              <%= link_to (raw('<h3>Export Deals</h3>')), export_deals_path(@team, :format => :csv),  data: { "no-turbolink" => true } %>
+              <br/>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-sm-3">
+          <div class="tile-title tile-aqua">
+            <div class="icon">
+              <%= link_to (raw(' <i class="entypo-users"></i>'.html_safe)), export_people_path(@team, :format => :csv),  data: { "no-turbolink" => true } %>
+            </div>
+            <div class="title">
+              <%= link_to (raw('<h3>Export People</h3>')), export_people_path(@team, :format => :csv),  data: { "no-turbolink" => true } %>
+              <p></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="tile-title tile-purple">
+            <div class="icon">
+              <%= link_to (raw(' <i class="entypo-network"></i>'.html_safe)), export_organizations_path(@team, :format => :csv),  data: { "no-turbolink" => true } %>
+            </div>
+            <div class="title">
+              <%= link_to (raw('<h3>Export Organizations</h3>')), export_organizations_path(@team, :format => :csv),  data: { "no-turbolink" => true } %>
+              <p></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

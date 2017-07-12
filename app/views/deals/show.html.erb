@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+<div class="panel panel-info">
+  <div class="panel-heading">
+  <div class="panel-title">
+    Details (Deal: <%= @deal.status %>)
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+    <div class="col-md-4">
+      <h5><strong>Contact name:</strong>
+      <%= @deal.person.name if @deal.person%></h5>
+
+      <h5><strong>Company:</strong>
+      <%= @deal.organization.name if @deal.organization%></h5>
+
+      <h5><strong>Title:</strong>
+      <%= @deal.title %></h5>
+
+      <h5><strong>Stage:</strong>
+      <%= @deal.stage.name %></h5>
+
+    </div>
+    <div class="col-md-4">
+
+      <h5><strong>Value:</strong>
+      <%= @deal.value %></h5>
+
+      <h5><strong>Start date:</strong>
+      <%= @deal.start_date %></h5>
+
+      <h5><strong>Close date:</strong>
+      <%= @deal.close_date %></h5>
+    </div>
+
+    <div class="col-md-4">
+
+      <h5><strong>Visibility:</strong>
+      <%= Visibility.find(@deal.visibility_id).name %></h5>
+
+      <h5><strong>Phone:</strong>
+      <%= @deal.phone %></h5>
+
+      <h5><strong>Email:</strong>
+      <%= @deal.email %></h5>
+
+      <h5><strong>Member who started this deal:</strong>
+      <%= User.find(@deal.user_id).email %></h5>
+
+    </div>
+  </div>
+      <br/>
+
+    <br/>
+
+    <div class="row">
+      <div class="col-md-4">
+        <%= link_to 'Edit', edit_team_deal_path(@team, @deal), class: 'btn btn-info' %>
+        <%= link_to 'Back', team_deals_path, class: 'btn btn-warning' %>
+        <%= link_to 'Delete', team_deal_path(@team, @deal), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>
+
