@@ -1,14 +1,14 @@
-# require 'rollbar/rails'
-# Rollbar.configure do |config|
+require 'rollbar/rails'
+Rollbar.configure do |config|
   # Without configuration, Rollbar is enabled in all environments.
   # To disable in specific environments, set config.enabled=false.
   
-  # config.access_token = '4a41107be38146f6b106f3951d864a1a'
+  config.access_token = '4a41107be38146f6b106f3951d864a1a'
 
   # Here we'll disable in 'test':
-  # if Rails.env.test?
-    # config.enabled = false
-  # end
+  if Rails.env.production?
+    config.enabled = false
+  end
   
 
   # By default, Rollbar will try to call the `current_user` controller method
@@ -49,4 +49,4 @@
   # config.use_sidekiq
   # You can supply custom Sidekiq options:
   # config.use_sidekiq 'queue' => 'my_queue'
-# end
+end

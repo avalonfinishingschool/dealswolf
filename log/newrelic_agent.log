@@ -1455,3 +1455,144 @@
 [2017-07-10 16:47:11 +0530 kunalsetpal-PC (3460)] ERROR : Invalid license key, please contact support@newrelic.com
 [2017-07-10 16:47:11 +0530 kunalsetpal-PC (3460)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
 [2017-07-12 18:40:36 +0530 kunalsetpal-PC (3460)] INFO : Starting Agent shutdown
+[2017-07-13 17:13:07 +0530 Tejas (8596)] INFO : Starting the New Relic agent version 4.1.0.333 in "development" environment.
+[2017-07-13 17:13:07 +0530 Tejas (8596)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-07-13 17:13:07 +0530 Tejas (8596)] WARN : No configuration file found. Working directory = C:/Sites/alphadeal-master
+[2017-07-13 17:13:07 +0530 Tejas (8596)] WARN : Looked in these locations (based on defaults): C:/Sites/alphadeal-master/config/newrelic.yml, C:/Sites/alphadeal-master/newrelic.yml, C:/Sites/alphadeal-master/config/newrelic.yml, C:/Sites/alphadeal-master/newrelic.yml, C:/Users/TheJazz/.newrelic/newrelic.yml, C:/Users/TheJazz/newrelic.yml
+[2017-07-13 17:13:07 +0530 Tejas (8596)] INFO : Environment: development
+[2017-07-13 17:13:07 +0530 Tejas (8596)] INFO : No known dispatcher detected.
+[2017-07-13 17:13:07 +0530 Tejas (8596)] INFO : Application: development
+[2017-07-13 17:13:07 +0530 Tejas (8596)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-07-13 17:13:07 +0530 Tejas (8596)] INFO : Installing ActiveJob instrumentation
+[2017-07-13 17:13:08 +0530 Tejas (8596)] INFO : Installing ActiveRecord 5 instrumentation
+[2017-07-13 17:13:08 +0530 Tejas (8596)] INFO : Installing Net instrumentation
+[2017-07-13 17:13:08 +0530 Tejas (8596)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-07-13 17:13:08 +0530 Tejas (8596)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-07-13 17:13:08 +0530 Tejas (8596)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-07-13 17:13:08 +0530 Tejas (8596)] INFO : Installing Rails 5 Action Cable instrumentation
+[2017-07-13 17:13:08 +0530 Tejas (8596)] INFO : Installing Rails 5 Controller instrumentation
+[2017-07-13 17:13:08 +0530 Tejas (8596)] INFO : Installing Rails 5 view instrumentation
+[2017-07-13 17:13:08 +0530 Tejas (8596)] INFO : Finished instrumentation
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : Starting the New Relic agent version 4.1.0.333 in "development" environment.
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-07-13 17:14:43 +0530 Tejas (8248)] WARN : No configuration file found. Working directory = C:/Sites/alphadeal-master
+[2017-07-13 17:14:43 +0530 Tejas (8248)] WARN : Looked in these locations (based on defaults): C:/Sites/alphadeal-master/config/newrelic.yml, C:/Sites/alphadeal-master/newrelic.yml, C:/Sites/alphadeal-master/config/newrelic.yml, C:/Sites/alphadeal-master/newrelic.yml, C:/Users/TheJazz/.newrelic/newrelic.yml, C:/Users/TheJazz/newrelic.yml
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : Environment: development
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : No known dispatcher detected.
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : Application: development
+[2017-07-13 17:14:43 +0530 Tejas (8248)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : Installing ActiveJob instrumentation
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : Installing ActiveRecord 5 instrumentation
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : Installing Net instrumentation
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : Installing Rails 5 Action Cable instrumentation
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : Installing Rails 5 Controller instrumentation
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : Installing Rails 5 view instrumentation
+[2017-07-13 17:14:43 +0530 Tejas (8248)] INFO : Finished instrumentation
+[2017-07-13 17:14:45 +0530 Tejas (8248)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-07-13 17:14:54 +0530 Tejas (8248)] WARN : Failed to determine processor count, assuming 1
+[2017-07-13 17:15:16 +0530 Tejas (8248)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-07-13 17:15:16 +0530 Tejas (8248)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2017-07-13 17:18:09 +0530 Tejas (8248)] INFO : Starting Agent shutdown
+[2017-07-13 17:39:11 +0530 Tejas (9180)] INFO : Starting the New Relic agent version 4.1.0.333 in "development" environment.
+[2017-07-13 17:39:11 +0530 Tejas (9180)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-07-13 17:39:11 +0530 Tejas (9180)] WARN : No configuration file found. Working directory = C:/Sites/alphadeal-master
+[2017-07-13 17:39:11 +0530 Tejas (9180)] WARN : Looked in these locations (based on defaults): C:/Sites/alphadeal-master/config/newrelic.yml, C:/Sites/alphadeal-master/newrelic.yml, C:/Sites/alphadeal-master/config/newrelic.yml, C:/Sites/alphadeal-master/newrelic.yml, C:/Users/TheJazz/.newrelic/newrelic.yml, C:/Users/TheJazz/newrelic.yml
+[2017-07-13 17:39:12 +0530 Tejas (9180)] INFO : Environment: development
+[2017-07-13 17:39:12 +0530 Tejas (9180)] INFO : No known dispatcher detected.
+[2017-07-13 17:39:12 +0530 Tejas (9180)] INFO : Application: development
+[2017-07-13 17:39:12 +0530 Tejas (9180)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-07-13 17:39:12 +0530 Tejas (9180)] INFO : Installing ActiveJob instrumentation
+[2017-07-13 17:39:12 +0530 Tejas (9180)] INFO : Installing ActiveRecord 5 instrumentation
+[2017-07-13 17:39:12 +0530 Tejas (9180)] INFO : Installing Net instrumentation
+[2017-07-13 17:39:12 +0530 Tejas (9180)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-07-13 17:39:12 +0530 Tejas (9180)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-07-13 17:39:12 +0530 Tejas (9180)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-07-13 17:39:12 +0530 Tejas (9180)] INFO : Installing Rails 5 Action Cable instrumentation
+[2017-07-13 17:39:12 +0530 Tejas (9180)] INFO : Installing Rails 5 Controller instrumentation
+[2017-07-13 17:39:12 +0530 Tejas (9180)] INFO : Installing Rails 5 view instrumentation
+[2017-07-13 17:39:12 +0530 Tejas (9180)] INFO : Finished instrumentation
+[2017-07-13 17:39:15 +0530 Tejas (9180)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-07-13 17:39:18 +0530 Tejas (9180)] WARN : Failed to determine processor count, assuming 1
+[2017-07-13 17:39:40 +0530 Tejas (9180)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-07-13 17:39:40 +0530 Tejas (9180)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2017-07-13 17:39:44 +0530 Tejas (9180)] INFO : Starting Agent shutdown
+[2017-07-13 17:40:29 +0530 Tejas (8428)] INFO : Starting the New Relic agent version 4.1.0.333 in "development" environment.
+[2017-07-13 17:40:29 +0530 Tejas (8428)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-07-13 17:40:29 +0530 Tejas (8428)] WARN : No configuration file found. Working directory = C:/Sites/alphadeal-master
+[2017-07-13 17:40:29 +0530 Tejas (8428)] WARN : Looked in these locations (based on defaults): C:/Sites/alphadeal-master/config/newrelic.yml, C:/Sites/alphadeal-master/newrelic.yml, C:/Sites/alphadeal-master/config/newrelic.yml, C:/Sites/alphadeal-master/newrelic.yml, C:/Users/TheJazz/.newrelic/newrelic.yml, C:/Users/TheJazz/newrelic.yml
+[2017-07-13 17:40:29 +0530 Tejas (8428)] INFO : Environment: development
+[2017-07-13 17:40:29 +0530 Tejas (8428)] INFO : No known dispatcher detected.
+[2017-07-13 17:40:29 +0530 Tejas (8428)] INFO : Application: development
+[2017-07-13 17:40:29 +0530 Tejas (8428)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-07-13 17:40:29 +0530 Tejas (8428)] INFO : Installing ActiveJob instrumentation
+[2017-07-13 17:40:29 +0530 Tejas (8428)] INFO : Installing ActiveRecord 5 instrumentation
+[2017-07-13 17:40:29 +0530 Tejas (8428)] INFO : Installing Net instrumentation
+[2017-07-13 17:40:30 +0530 Tejas (8428)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-07-13 17:40:30 +0530 Tejas (8428)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-07-13 17:40:30 +0530 Tejas (8428)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-07-13 17:40:30 +0530 Tejas (8428)] INFO : Installing Rails 5 Action Cable instrumentation
+[2017-07-13 17:40:30 +0530 Tejas (8428)] INFO : Installing Rails 5 Controller instrumentation
+[2017-07-13 17:40:30 +0530 Tejas (8428)] INFO : Installing Rails 5 view instrumentation
+[2017-07-13 17:40:30 +0530 Tejas (8428)] INFO : Finished instrumentation
+[2017-07-13 17:40:31 +0530 Tejas (8428)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-07-13 17:40:34 +0530 Tejas (8428)] WARN : Failed to determine processor count, assuming 1
+[2017-07-13 17:40:34 +0530 Tejas (8428)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-07-13 17:40:34 +0530 Tejas (8428)] INFO : Installing deferred Puma::Rack::Builder instrumentation
+[2017-07-13 17:40:34 +0530 Tejas (8428)] INFO : Installing Puma::Rack::Builder middleware instrumentation
+[2017-07-13 17:41:11 +0530 Tejas (8428)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-07-13 17:41:11 +0530 Tejas (8428)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2017-07-13 17:41:59 +0530 Tejas (8428)] INFO : Starting Agent shutdown
+[2017-07-13 17:43:44 +0530 Tejas (3232)] INFO : Starting the New Relic agent version 4.1.0.333 in "development" environment.
+[2017-07-13 17:43:44 +0530 Tejas (3232)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-07-13 17:43:44 +0530 Tejas (3232)] WARN : No configuration file found. Working directory = C:/Sites/alphadeal-master
+[2017-07-13 17:43:44 +0530 Tejas (3232)] WARN : Looked in these locations (based on defaults): C:/Sites/alphadeal-master/config/newrelic.yml, C:/Sites/alphadeal-master/newrelic.yml, C:/Sites/alphadeal-master/config/newrelic.yml, C:/Sites/alphadeal-master/newrelic.yml, C:/Users/TheJazz/.newrelic/newrelic.yml, C:/Users/TheJazz/newrelic.yml
+[2017-07-13 17:43:44 +0530 Tejas (3232)] INFO : Environment: development
+[2017-07-13 17:43:44 +0530 Tejas (3232)] INFO : No known dispatcher detected.
+[2017-07-13 17:43:44 +0530 Tejas (3232)] INFO : Application: development
+[2017-07-13 17:43:44 +0530 Tejas (3232)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-07-13 17:43:44 +0530 Tejas (3232)] INFO : Installing ActiveJob instrumentation
+[2017-07-13 17:43:45 +0530 Tejas (3232)] INFO : Installing ActiveRecord 5 instrumentation
+[2017-07-13 17:43:45 +0530 Tejas (3232)] INFO : Installing Net instrumentation
+[2017-07-13 17:43:45 +0530 Tejas (3232)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-07-13 17:43:45 +0530 Tejas (3232)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-07-13 17:43:45 +0530 Tejas (3232)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-07-13 17:43:45 +0530 Tejas (3232)] INFO : Installing Rails 5 Action Cable instrumentation
+[2017-07-13 17:43:45 +0530 Tejas (3232)] INFO : Installing Rails 5 Controller instrumentation
+[2017-07-13 17:43:45 +0530 Tejas (3232)] INFO : Installing Rails 5 view instrumentation
+[2017-07-13 17:43:45 +0530 Tejas (3232)] INFO : Finished instrumentation
+[2017-07-13 17:43:46 +0530 Tejas (3232)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-07-13 17:43:54 +0530 Tejas (3232)] WARN : Failed to determine processor count, assuming 1
+[2017-07-13 17:43:54 +0530 Tejas (3232)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-07-13 17:43:54 +0530 Tejas (3232)] INFO : Installing deferred Puma::Rack::Builder instrumentation
+[2017-07-13 17:43:54 +0530 Tejas (3232)] INFO : Installing Puma::Rack::Builder middleware instrumentation
+[2017-07-13 17:44:21 +0530 Tejas (3232)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-07-13 17:44:21 +0530 Tejas (3232)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2017-07-13 17:45:18 +0530 Tejas (3232)] INFO : Starting Agent shutdown
+[2017-07-13 17:45:32 +0530 Tejas (2428)] INFO : Starting the New Relic agent version 4.1.0.333 in "development" environment.
+[2017-07-13 17:45:32 +0530 Tejas (2428)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-07-13 17:45:32 +0530 Tejas (2428)] WARN : No configuration file found. Working directory = C:/Sites/alphadeal-master
+[2017-07-13 17:45:32 +0530 Tejas (2428)] WARN : Looked in these locations (based on defaults): C:/Sites/alphadeal-master/config/newrelic.yml, C:/Sites/alphadeal-master/newrelic.yml, C:/Sites/alphadeal-master/config/newrelic.yml, C:/Sites/alphadeal-master/newrelic.yml, C:/Users/TheJazz/.newrelic/newrelic.yml, C:/Users/TheJazz/newrelic.yml
+[2017-07-13 17:45:32 +0530 Tejas (2428)] INFO : Environment: development
+[2017-07-13 17:45:32 +0530 Tejas (2428)] INFO : No known dispatcher detected.
+[2017-07-13 17:45:32 +0530 Tejas (2428)] INFO : Application: development
+[2017-07-13 17:45:32 +0530 Tejas (2428)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-07-13 17:45:33 +0530 Tejas (2428)] INFO : Installing ActiveJob instrumentation
+[2017-07-13 17:45:33 +0530 Tejas (2428)] INFO : Installing ActiveRecord 5 instrumentation
+[2017-07-13 17:45:33 +0530 Tejas (2428)] INFO : Installing Net instrumentation
+[2017-07-13 17:45:33 +0530 Tejas (2428)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-07-13 17:45:33 +0530 Tejas (2428)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-07-13 17:45:33 +0530 Tejas (2428)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-07-13 17:45:33 +0530 Tejas (2428)] INFO : Installing Rails 5 Action Cable instrumentation
+[2017-07-13 17:45:33 +0530 Tejas (2428)] INFO : Installing Rails 5 Controller instrumentation
+[2017-07-13 17:45:33 +0530 Tejas (2428)] INFO : Installing Rails 5 view instrumentation
+[2017-07-13 17:45:33 +0530 Tejas (2428)] INFO : Finished instrumentation
+[2017-07-13 17:45:34 +0530 Tejas (2428)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-07-13 17:45:44 +0530 Tejas (2428)] WARN : Failed to determine processor count, assuming 1
+[2017-07-13 17:45:45 +0530 Tejas (2428)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-07-13 17:45:45 +0530 Tejas (2428)] INFO : Installing deferred Puma::Rack::Builder instrumentation
+[2017-07-13 17:45:45 +0530 Tejas (2428)] INFO : Installing Puma::Rack::Builder middleware instrumentation
+[2017-07-13 17:46:09 +0530 Tejas (2428)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-07-13 17:46:09 +0530 Tejas (2428)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
