@@ -16,6 +16,7 @@ gem "omnicontacts", :git => 'git://github.com/Diego81/omnicontacts.git', :branch
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
+gem 'foundation-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
