@@ -49,4 +49,4 @@
   # config.use_sidekiq
   # You can supply custom Sidekiq options:
   # config.use_sidekiq 'queue' => 'my_queue'
-end
+# end
