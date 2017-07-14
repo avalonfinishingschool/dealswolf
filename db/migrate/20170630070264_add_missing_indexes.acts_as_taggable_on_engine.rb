@@ -1,7 +1,7 @@
 # This migration comes from acts_as_taggable_on_engine (originally 6)
 class AddMissingIndexes < ActiveRecord::Migration[5.0]
   def change
-    # add_index :taggings, :tag_id
+    add_index :taggings, :tag_id
     add_index :taggings, :taggable_id
     add_index :taggings, :taggable_type
     add_index :taggings, :tagger_id
