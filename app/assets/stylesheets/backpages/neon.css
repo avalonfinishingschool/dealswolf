@@ -6937,7 +6937,7 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 lesshat-selector {
   -lh-property: 0; }
-/*@-webkit-keyframes reloadingAnimation{ 
+@-webkit-keyframes reloadingAnimation{ 
   0%{ 
     -webkit-transform: rotate(0deg); 
   } 
@@ -6960,7 +6960,7 @@ lesshat-selector {
 @keyframes reloadingAnimation{ 
   0%{ transform: rotate(0deg); } 
   100%{ transform: rotate(360deg); };
-}*/
+}
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;

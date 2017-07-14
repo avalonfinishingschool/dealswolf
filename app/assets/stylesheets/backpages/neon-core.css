@@ -694,7 +694,7 @@ lesshat-selector {
   -lh-property: 0; 
 }
  
-/*@-webkit-keyframes reloadingAnimation{ 
+@-webkit-keyframes reloadingAnimation{ 
   0%{ 
     -webkit-transform: rotate(0deg); 
   } 
@@ -702,7 +702,7 @@ lesshat-selector {
     -webkit-transform: rotate(360deg); 
   }
 }
-}
+/*}*/
 @-moz-keyframes reloadingAnimation{ 
   0%{ 
     -moz-transform: rotate(0deg); 
@@ -711,7 +711,7 @@ lesshat-selector {
     -moz-transform: rotate(360deg); 
   }
 }
-}
+/*}*/
 @-o-keyframes reloadingAnimation{ 
   0%{ 
     -o-transform: rotate(0deg); 
@@ -720,7 +720,7 @@ lesshat-selector {
     -o-transform: rotate(360deg); 
   }
 }
-}
+/*}*/
 @keyframes reloadingAnimation{ 
   0%{
     -webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-ms-transform: rotate(0deg);transform: rotate(0deg); 
@@ -728,8 +728,8 @@ lesshat-selector {
   100%{
     -webkit-transform: rotate(360deg);-moz-transform: rotate(360deg);-ms-transform: rotate(360deg);transform: rotate(360deg); 
   }
-};
-}*/
+}
+/*;}*/
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
