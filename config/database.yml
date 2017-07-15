@@ -49,4 +49,5 @@ test:
   database: alphadeal_test
 
 production:
+  adapter: postgresql
   database: alphadeal_production
