@@ -695,7 +695,7 @@ hr {
 }
 
 .item a:hover {
-    cursor: url(../images/cursor.png), auto;
+    cursor: image-url('cursor.png'), auto;
 }
 
 .item a:hover img{

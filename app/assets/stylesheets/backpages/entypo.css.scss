@@ -1,10 +1,10 @@
 /*@font-face {
   font-family: 'entypo';
-  src: url('/assets/entypo8421.eot?71205724');
-  src: url('/assets/entypo8421.eot?71205724#iefix') format('embedded-opentype'),
-       url('/assets/entypo8421.woff?71205724') format('woff'),
-       url('/assets/entypo8421.ttf?71205724') format('truetype'),
-       url('/assets/entypo8421.svg?71205724#entypo') format('svg');
+  src: font-url('/assets/entypo8421.eot?71205724');
+  src: font-url('/assets/entypo8421.eot?71205724#iefix') format('embedded-opentype'),
+       font-url('/assets/entypo8421.woff?71205724') format('woff'),
+       font-url('/assets/entypo8421.ttf?71205724') format('truetype'),
+       font-url('/assets/entypo8421.svg?71205724#entypo') format('svg');
 
 }
 */
@@ -24,7 +24,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'entypo';
-    src: url('../font/entypo.svg?71205724#entypo') format('svg');
+    src: font-url('../font/entypo.svg?71205724#entypo') format('svg');
   }
 }
 */
