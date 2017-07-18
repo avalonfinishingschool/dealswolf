@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require tether
 
 //commented these out temporarily, I think the main jquery ui library includes these.
 // require jquery.ui.draggable
