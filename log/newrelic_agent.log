@@ -1891,3 +1891,18 @@
 [2017-07-29 15:42:06 +0530 Tejas (3268)] ERROR : Error establishing connection with New Relic Service at collector.newrelic.com:443:
 [2017-07-29 15:42:06 +0530 Tejas (3268)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error talking to collector.newrelic.com:443 after 2 attempts: Failed to open TCP connection to collector.newrelic.com:443 (getaddrinfo: No such host is known. )
 [2017-07-29 15:42:06 +0530 Tejas (3268)] INFO : Will re-attempt in 360 seconds
+[2017-07-29 15:48:39 +0530 Tejas (3268)] ERROR : Error establishing connection with New Relic Service at collector.newrelic.com:443:
+[2017-07-29 15:48:39 +0530 Tejas (3268)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error talking to collector.newrelic.com:443 after 2 attempts: Failed to open TCP connection to collector.newrelic.com:443 (getaddrinfo: No such host is known. )
+[2017-07-29 15:48:39 +0530 Tejas (3268)] INFO : Will re-attempt in 420 seconds
+[2017-07-29 15:56:00 +0530 Tejas (3268)] ERROR : Error establishing connection with New Relic Service at collector.newrelic.com:443:
+[2017-07-29 15:56:00 +0530 Tejas (3268)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error talking to collector.newrelic.com:443 after 2 attempts: Failed to open TCP connection to collector.newrelic.com:443 (getaddrinfo: No such host is known. )
+[2017-07-29 15:56:00 +0530 Tejas (3268)] INFO : Will re-attempt in 480 seconds
+[2017-07-29 16:04:21 +0530 Tejas (3268)] ERROR : Error establishing connection with New Relic Service at collector.newrelic.com:443:
+[2017-07-29 16:04:21 +0530 Tejas (3268)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error talking to collector.newrelic.com:443 after 2 attempts: Failed to open TCP connection to collector.newrelic.com:443 (getaddrinfo: No such host is known. )
+[2017-07-29 16:04:21 +0530 Tejas (3268)] INFO : Will re-attempt in 540 seconds
+[2017-07-29 16:13:42 +0530 Tejas (3268)] ERROR : Error establishing connection with New Relic Service at collector.newrelic.com:443:
+[2017-07-29 16:13:42 +0530 Tejas (3268)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error talking to collector.newrelic.com:443 after 2 attempts: Failed to open TCP connection to collector.newrelic.com:443 (getaddrinfo: No such host is known. )
+[2017-07-29 16:13:42 +0530 Tejas (3268)] INFO : Will re-attempt in 600 seconds
+[2017-07-29 16:24:03 +0530 Tejas (3268)] ERROR : Error establishing connection with New Relic Service at collector.newrelic.com:443:
+[2017-07-29 16:24:03 +0530 Tejas (3268)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error talking to collector.newrelic.com:443 after 2 attempts: Failed to open TCP connection to collector.newrelic.com:443 (getaddrinfo: No such host is known. )
+[2017-07-29 16:24:03 +0530 Tejas (3268)] INFO : Will re-attempt in 600 seconds
