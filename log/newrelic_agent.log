@@ -1906,3 +1906,6 @@
 [2017-07-29 16:24:03 +0530 Tejas (3268)] ERROR : Error establishing connection with New Relic Service at collector.newrelic.com:443:
 [2017-07-29 16:24:03 +0530 Tejas (3268)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error talking to collector.newrelic.com:443 after 2 attempts: Failed to open TCP connection to collector.newrelic.com:443 (getaddrinfo: No such host is known. )
 [2017-07-29 16:24:03 +0530 Tejas (3268)] INFO : Will re-attempt in 600 seconds
+[2017-07-29 16:34:26 +0530 Tejas (3268)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-07-29 16:34:26 +0530 Tejas (3268)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2017-07-29 16:48:02 +0530 Tejas (3268)] INFO : Starting Agent shutdown
