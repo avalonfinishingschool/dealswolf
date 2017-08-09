@@ -70,6 +70,10 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+  config.action_mailer.default_url_options = { :host => 'dealswolf.herokuapp.com' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       :address   => "smtp.mandrillapp.com",
@@ -78,7 +82,7 @@ Rails.application.configure do
       :user_name => "varun@alphadeal.co",
       :password  => "nL5cS63slKRZ0yzpQPjAWQ", # SMTP password is any valid API key
       :authentication => 'login', # Mandrill supports 'plain' or 'login'
-      :domain => 'herokuapp.com' # your domain to identify your server when connecting
+      :domain => 'heroku.com' # your domain to identify your server when connecting
   }
 
   # Disable automatic flushing of the log to improve performance.
