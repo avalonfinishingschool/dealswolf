@@ -78,7 +78,7 @@ Rails.application.configure do
       :user_name => "varun@alphadeal.co",
       :password  => "nL5cS63slKRZ0yzpQPjAWQ", # SMTP password is any valid API key
       :authentication => 'login', # Mandrill supports 'plain' or 'login'
-      :domain => 'heroku.com' # your domain to identify your server when connecting
+      :domain => 'herokuapp.com' # your domain to identify your server when connecting
   }
 
   # Disable automatic flushing of the log to improve performance.
