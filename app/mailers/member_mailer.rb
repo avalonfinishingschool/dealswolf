@@ -14,7 +14,7 @@ class MemberMailer < ApplicationMailer
 	def welcome_mail(email, team_name, team_owner)
 		@email = email
 		@team_name = team_name
-		@team_creator = team_creator
+		@team_creator = team_owner
 	    mail :subject => "AlphaDeal - You have been invited to join #{@team_name} by #{@team_creator}",
 	         :to      => email,
 	         :from    => "support@alphadeal.co",

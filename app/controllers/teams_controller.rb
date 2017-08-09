@@ -156,7 +156,7 @@ class TeamsController < ApplicationController
           redirect_to invite_team_path and return
         else
           @team.users << found_user
-          MemberMailer.welcome_mail(found_user.email).deliver
+          MemberMailer.welcome_mail(found_user.email, @team.name, @team.creator.email).deliver
           flash[:notice] = "Successfully added #{found_user.email}."
           redirect_to invite_team_path and return
         end
@@ -263,7 +263,7 @@ class TeamsController < ApplicationController
       Razorpay::Payment.fetch(params[:razorpay_payment_id]).capture({amount:100})
       @team.renewal_date = DateTime.now
       @team.save
-      redirect_to @team, notice:"Subcription successfully renewed"
+      redirect_to @team, notice:"Subscription successfully renewed"
     else
       @team = Team.friendly.find(params[:team_id])
     end
