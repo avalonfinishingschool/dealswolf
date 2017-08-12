@@ -1,9 +1,30 @@
 <div class="panel panel-primary">
 
   <div class="panel-heading">
-    <div class="panel-title">
-      Deals Dashboard
-    </div>
+     <div class="row" style="margin-left:15px; margin-right:15px; margin-top:12px">
+      <div class="col-md-3">
+        <h4>Deals Dashboard</h4>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        <%= simple_form_for(@team) do |f| %>
+          <div class="form-group select optional team_currency_id">
+            <p class="help-block">Change currency</p>
+            <div class="input-group input-group-md">
+                <div class="icon-addon addon-md">
+                    <select class="select optional form-control" name="team[currency_id]" id="team_currency_id">
+                      <% Currency.all.each do |cur| %>
+                        <option value="<%= cur.id %>" <%= "selected" if cur.id == @team.currency_id %>><%= cur.country %></option>
+                      <% end %> 
+                    </select>
+                </div>
+                <span class="input-group-btn">
+                  <button class="btn btn-info" type="submit">Go</button>
+                </span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+     </div>
   </div>
 
   <div class="panel-body deals-body min-htw">
