@@ -45,8 +45,12 @@ class PeopleController < ApplicationController
     @person.user_id = current_user.id
     respond_to do |format|
       if @person.save
-        format.html { redirect_to team_people_path(@team), notice: 'Person was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @person }
+        if params[:type] && params[:type] == "newdeal"
+          format.html { redirect_to team_deals_path(@team, type: params[:type]), notice: 'Organization was successfully created.' }
+        else
+          format.html { redirect_to team_people_path(@team, type: params[:type]), notice: 'Person was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @person }
+        end
       else
         @people = @team.people.all
         iwantmodal

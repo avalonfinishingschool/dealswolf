@@ -8,9 +8,7 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
   def layout_by_resource
-    if devise_controller? && resource_name == :user && action_name == 'edit'
-      "app-small-nav"
-    elsif devise_controller? && resource_name == :user
+    if devise_controller? && resource_name == :user && action_name != 'edit'
       "homepages"
     else
       "application"
@@ -45,7 +43,9 @@ class ApplicationController < ActionController::Base
       @team = Team.friendly.find(params[:id])
     end
     if(DateTime.now > @team.renewal_date)
-        redirect_to payment_team_path(@team), :notice => "Your subscription has ended. Please pay to continue"
+      # redirect_to payment_team_path(@team), :notice => "Your subscription has ended. Please pay to continue"
+      @team.renewal_date += 1.year
+      @team.save  
     end
   end
 

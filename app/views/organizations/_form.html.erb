@@ -39,6 +39,9 @@
                 <%= f.input :visibility_id, collection: Visibility.all,:include_blank => false %>
               </div>
             </div>
+            <% if params[:type] %>
+              <%= hidden_field_tag :type, params[:type] %>
+            <% end %>
         </div>
         <div class="modal-footer">
           <div class="form-actions">

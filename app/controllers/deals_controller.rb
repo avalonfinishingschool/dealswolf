@@ -13,6 +13,10 @@ class DealsController < ApplicationController
     @deal = Deal.new(:team_id => @team.id)
     # Only visible deals should go into deals_by_month on the whole maybe we should only load visible deals
     #@deals_by_month = show_visible(@deals).sort_by(&:created_at).reverse.group_by { |deal| deal.created_at.strftime("%B '%g") }
+    if params[:type] && params[:type] == "newdeal"
+      iwantmodal
+      should_modal_be_open
+    end
     render action: 'all' if params[:view_mode] == "all"
   end
 

@@ -15,6 +15,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Deal</th>
       <th>Type</th>
       <th>Responsible</th>
       <th>With</th>
@@ -36,6 +37,7 @@
       <% if (Deal.find(activity.deal_id).visibility_id == 1) || (Deal.find(activity.deal_id).visibility_id == 2 && Deal.find(activity.deal_id).user_id == current_user.id)%>
         <tr>
           <td><strong><%= link_to activity.name, edit_team_activity_path(@team, activity) %></strong></td>
+          <td><%= activity.deal.title.capitalize %></td>
           <td><%= activity.type.name.capitalize %></td>
           <td><%= User.find(activity.user_id).email  %></td>
           <td><%= activity.person.name if activity.person%></td>

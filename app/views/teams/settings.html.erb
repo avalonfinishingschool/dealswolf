@@ -24,7 +24,7 @@
 
 				<div class="row">
 				    <div class="col-md-offset-3 col-md-6">
-				    	<%= f.input :currency_id, include_blank:false, class:"form-control", label: "Change Currency Extension", required: false, collection:Currency.all, label_method: lambda { |obj| t("#{obj.extension}") }, :selected => @team.currency_id %>
+				    	<%= f.input :currency_id, include_blank:false, class:"form-control", label: "Change Currency Extension", required: false, collection:Currency.all, label_method: lambda { |obj| t("#{obj.country}") }, :selected => @team.currency_id %>
 				    </div>
 				</div>
 				<br/>
@@ -57,6 +57,7 @@
 	        		</div>
 	        		<div class="title">
 	        			<h3>Current Plan</h3>
+	        			<h4 style="color: white">Expires on: <%= @team.renewal_date.strftime("%B %d, %Y") %></h4>
 	        			<br/>
 	        		</div>
 		        </div>
@@ -71,7 +72,7 @@
             	<h3 class="panel-title">Actions</h3>
             </div>
             <div class="panel-body">
-            	<%= link_to (raw("<div class='tile-title tile-red'><div class='icon'><i class='entypo-key'></i><h3>Destroy Team</h3></div><div class='title'><h3>(This cannot be undone)</h3><br/></div></div>")), @team, :method => :delete, :confirm => "Sure? This will delete everything!" %>
+            	<%= link_to (raw("<div class='tile-title tile-red'><div class='icon'><i class='entypo-key'></i><h3>Destroy Team</h3></div><div class='title'><h3>(This cannot be undone)</h3><br/></div></div>")), @team, :method => :delete, data: { :confirm => "Are you sure? This will delete everything!" } %>
 			</div>
 		</div>
 	</div>

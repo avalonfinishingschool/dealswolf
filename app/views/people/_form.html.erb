@@ -24,7 +24,10 @@
 
             <div class="row">
               <div class="col-md-offset-2 col-md-8">
-                <%= f.input :organization_id, :collection => @team.organizations %>
+                <%= f.input :organization_id do %>
+                  <%= f.input_field :organization_id, :collection => @team.organizations.order("created_at desc"), include_blank: false %>
+                <% end %>
+                <%#= f.input :organization_id, :collection => @team.organizations.order("created_at desc") %>
               </div>
             </div>
 
@@ -62,6 +65,10 @@
             </div>
 
         </div>
+
+        <% if params[:type] %>
+          <%= hidden_field_tag :type, params[:type] %>
+        <% end %>
 
         <div class="modal-footer">
           <div class="form-actions">

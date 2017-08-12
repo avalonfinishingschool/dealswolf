@@ -41,12 +41,13 @@ Rails.application.routes.draw do
   post '/teams/:team_id/upgrade' => 'teams#upgrade', as: :upgrade_team
   post '/teams/:team_id/card_edit' => 'teams#card_edit', as: :card_edit_team
   get '/teams/:team_id/change_card' => 'teams#change_card', as: :change_card_team
-  get '/teams/:team_id/payment' => 'teams#payment', as: :payment_team
-  post 'teams/:team_id/payment' => 'teams#payment', as: :post_payment_team
+  # get '/teams/:team_id/payment' => 'teams#payment', as: :payment_team
+  # post 'teams/:team_id/payment' => 'teams#payment', as: :post_payment_team
   devise_for :users, :controllers => { :registrations => "my_devise/registrations"}
   get '/tnc' => 'pages#tnc'
   get '/privacy_policy' => 'pages#privacy_policy'
   get '/refund_policy' => 'pages#refund_policy'
+  get '/paypal/checkout', to: 'teams#paypal_checkout'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

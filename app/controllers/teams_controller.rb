@@ -4,11 +4,11 @@ require 'date'
 class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_team, only: [:stats, :settings, :show, :edit, :update, :destroy, :deals, :invite, :add_member, :remove, :upgrade, :change_card, :card_edit, :stages, :export_deals, :export_activities, :export_people, :export_organizations, :export, :search, :eagleview]
-  before_action :is_subscription_active, except: [:index, :new, :create, :settings, :change_card, :card_edit, :stages, :export_deals, :export_activities, :export_people, :export_organizations, :export, :search, :eagleview, :payment, :destroy]
-  #before_action :is_subscription_active, only: [:show]
+  before_action :is_subscription_active, except: [:index, :new, :create, :settings, :change_card, :card_edit, :stages, :export_deals, :export_activities, :export_people, :export_organizations, :export, :search, :eagleview, :payment, :destroy, :paypal_checkout]
+  # before_action :is_subscription_active, only: [:show]
   skip_before_action :verify_authenticity_token, only: [:payment, :create, :new]
-  before_action :set_gon, except: [:index, :new, :create, :payment]
-  before_action :is_this_a_team_i_belong_to_or_own?, except: [:index, :new, :create, :payment]
+  before_action :set_gon, except: [:index, :new, :create, :payment, :paypal_checkout]
+  before_action :is_this_a_team_i_belong_to_or_own?, except: [:index, :new, :create, :payment, :paypal_checkout]
   before_action :is_owner?, only: [:settings, :edit, :update, :destroy, :add_member, :remove, :upgrade, :change_card, :card_edit, :stages, :export_deals, :export_activities, :export_people, :export_organizations, :export, :eagleview]
   
 
@@ -186,9 +186,16 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     unless current_user.owned_team
-      @team = Team.new
-      @team.creator = current_user
-      render :layout => "app-small-nav"
+      if params[:PayerID] && params[:plan_id] && params[:token]
+        @team = Team.new
+        @team.plan_id = params[:plan_id]
+        @team.paypal_customer_token = params[:PayerID];
+        @team.paypal_payment_token = params[:token];
+        render :layout => "app-small-nav"
+      else
+        flash[:notice] = "Error occured while making payments through Paypal. Please try again."
+        redirect_to teams_path
+      end
     else
       redirect_to root_path, notice: "You already own a team!"
     end
@@ -229,15 +236,16 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
-    response = Razorpay::Payment.fetch(params[:razorpay_payment_id]).capture({amount:100})
+    # response = Razorpay::Payment.fetch(params[:razorpay_payment_id]).capture({amount:100})
     #--------------------------------------------------------------------------
     @team = Team.new(team_params)
     @team.creator = current_user
-    @team.razorpay_payment_id = params[:razorpay_payment_id]
-    @team.renewal_date = DateTime.now + 1.year
+    # @team.razorpay_payment_id = params[:razorpay_payment_id]
+    # @team.renewal_date = DateTime.now + 1.year
 
     respond_to do |format|
-      if @team.save
+      # if @team.save
+      if @team.save_with_paypal_payment
 
         @team.stages.create(:name => "Initial")
         @team.stages.create(:name => "Contact Made")
@@ -256,21 +264,22 @@ class TeamsController < ApplicationController
     end
   end
 
-  def payment
-    if request.post?
-      @team = Team.friendly.find(params[:team_id])
-      @team.razorpay_payment_id = params[:razorpay_payment_id]
-      Razorpay::Payment.fetch(params[:razorpay_payment_id]).capture({amount:100})
-      @team.renewal_date = DateTime.now
-      @team.save
-      redirect_to @team, notice:"Subscription successfully renewed"
-    else
-      @team = Team.friendly.find(params[:team_id])
-    end
-  end
+  # def payment
+  #   if request.post?
+  #     @team = Team.friendly.find(params[:team_id])
+  #     @team.razorpay_payment_id = params[:razorpay_payment_id]
+  #     Razorpay::Payment.fetch(params[:razorpay_payment_id]).capture({amount:100})
+  #     @team.renewal_date = DateTime.now
+  #     @team.save
+  #     redirect_to @team, notice:"Subscription successfully renewed"
+  #   else
+  #     @team = Team.friendly.find(params[:team_id])
+  #   end
+  # end
   # DELETE /teams/1
   # DELETE /teams/1.json
   def destroy
+    @team.suspend_payment
     @team.destroy
 
 
@@ -282,6 +291,29 @@ class TeamsController < ApplicationController
 
   def stages
 
+  end
+
+  def paypal_checkout
+    # render json: params
+    plan = Plan.find(params[:plan_id])
+    ppr = PayPal::Recurring.new(
+      return_url: new_team_url(plan_id: plan.id),
+      cancel_url: teams_url,
+      description: plan.name+" Plan - AlphaDeals Subscription.",
+      amount: plan.price.to_s+"0",
+      currency: "USD"
+    )
+    response = ppr.checkout
+    if response.valid?
+      # Create team
+      redirect_to response.checkout_url
+    else
+      raise response.errors.inspect
+    end
+    # redirect_to subscription.paypal.checkout_url(
+    # return_url: new_subscription_url(:plan_id => plan.id),
+    # cancel_url: root_url
+    # )
   end
 
   private
@@ -300,6 +332,7 @@ class TeamsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def team_params
-    params.require(:team).permit(:name, :currency_id, :plan_id, :razorpay_payment_id,:renewal_date, :card_number, :card_month, :card_code,stages_attributes: [:id, :name, :ord, :_destroy])
+    # params.require(:team).permit(:name, :currency_id, :plan_id, :razorpay_payment_id,:renewal_date, :card_number, :card_month, :card_code,stages_attributes: [:id, :name, :ord, :_destroy])
+    params.require(:team).permit(:organization, :name, :currency_id, :plan_id, :paypal_payment_token, :paypal_customer_token, stages_attributes: [:id, :name, :ord, :_destroy])
   end
 end

@@ -41,8 +41,12 @@ class OrganizationsController < ApplicationController
     @organization.user_id = current_user.id
     respond_to do |format|
       if @organization.save
-        format.html { redirect_to team_organizations_path(@team), notice: 'Organization was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @organization }
+        if params[:type] && params[:type] == "newdeal"
+          format.html { redirect_to team_deals_path(@team, type: params[:type]), notice: 'Organization was successfully created.' }
+        else
+          format.html { redirect_to team_organizations_path(@team), notice: 'Organization was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @organization }
+        end
       else
         @organizations = @team.organizations.all
         iwantmodal

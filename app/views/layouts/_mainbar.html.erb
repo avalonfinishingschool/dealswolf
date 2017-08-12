@@ -4,7 +4,9 @@
     <ul class="list-inline links-list pull-left">
 
       <li class="make_big">
-        <%= @team.name if @team%> <span class="arrow_sub">&#x25b6;</span>
+        <% if @team %>
+          <%= @team.organization %> - <%= @team.name %> <span class="arrow_sub">&#x25b6;</span>
+        <% end %>
         <%= action_name.capitalize unless action_name == "index" %>
         <%= "AlphaDeal" unless @team %>
         <% if notice %>

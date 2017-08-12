@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719081348) do
+ActiveRecord::Schema.define(version: 20170812030450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,8 +190,10 @@ ActiveRecord::Schema.define(version: 20170719081348) do
     t.datetime "updated_at"
     t.datetime "renewal_date"
     t.string   "slug"
-    t.string   "razorpay_payment_id"
-    t.integer  "currency_id",         default: 1
+    t.integer  "currency_id",                    default: 1
+    t.string   "paypal_customer_token"
+    t.string   "paypal_recurring_profile_token"
+    t.string   "organization"
     t.index ["slug"], name: "index_teams_on_slug", unique: true, using: :btree
   end
 

@@ -1,10 +1,30 @@
 <div class="panel panel-primary">
 
   <div class="panel-heading">
-    <div class="panel-title">
-      Deals Dashboard
-    </a>
-    </div>
+     <div class="row" style="margin-left:15px; margin-right:15px; margin-top:12px">
+      <div class="col-md-3">
+        <h4>Deals Dashboard</h4>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        <%= simple_form_for(@team) do |f| %>
+          <div class="form-group select optional team_currency_id">
+            <p class="help-block">Change currency</p>
+            <div class="input-group input-group-md">
+                <div class="icon-addon addon-md">
+                    <select class="select optional form-control" name="team[currency_id]" id="team_currency_id">
+                      <% Currency.all.each do |cur| %>
+                        <option value="<%= cur.id %>" <%= "selected" if cur.id == @team.currency_id %>><%= cur.country %></option>
+                      <% end %> 
+                    </select>
+                </div>
+                <span class="input-group-btn">
+                  <button class="btn btn-info" type="submit">Go</button>
+                </span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+     </div>
   </div>
 
   <div class="panel-body deals-body min-htw">
@@ -30,8 +50,13 @@
           <% show_visible_unarchived_deals(stage).each do |deal| %>
 
             <div id="<%= deal.id %>" class="tile-stats tile-<%= "#{dealcolor(deal.status, deal.archived)}" %> draggable notransition" data-stage-id="<%= deal.stage_id %>">
-              <div class="num"><%= link_to deal.title, team_deal_path(@team, deal)%><%= link_to (raw('<i class="entypo-erase"></i>')), team_deal_path(@team, deal), method: :delete, data: { confirm: 'Are you sure?' }, class: 'pull-right' %></div>
-              <%= link_to "#{time_ago_in_words(deal.created_at)} ago", edit_team_deal_path(@team, deal) %>
+              <div class="num">
+                <%= link_to deal.title, team_deal_path(@team, deal)%>
+                <%= link_to (raw('<i class="entypo-erase"></i>')), team_deal_path(@team, deal), method: :delete, data: { confirm: 'Are you sure?' }, class: 'pull-right' %>
+                <%= link_to (raw("<i class='entypo-pencil'></i>")), edit_team_deal_path(@team, deal), class: 'deal-btn'%>
+              </div>
+              <h5 class="number"></h5>
+              <h5 class="number" ><%= time_ago_in_words(deal.created_at) %> ago</h5>
               <h5 class="number"><%= number_with_delimiter(deal.value) %> <%= Currency.find(@team.currency_id).extension %></h5>
               <h5 class="number"><%= deal.organization.name if deal.organization %></h5>
               <h5 class="number deal-btn-stack">
