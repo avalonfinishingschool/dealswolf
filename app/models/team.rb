@@ -18,7 +18,7 @@ class Team < ApplicationRecord
     ppr = PayPal::Recurring.new(
       token: paypal_payment_token,
       payer_id: paypal_customer_token,
-      description: plan.name+" Plan - AlphaDeals Subscription.",
+      description: plan.name+" Plan - AlphaDeals Annual Subscription.",
       amount: plan.price.to_s+"0",
       currency: "USD"
     )
@@ -28,7 +28,7 @@ class Team < ApplicationRecord
     pp = PayPal::Recurring.new({
       :amount      => plan.price.to_s+"0",
       :currency    => "USD",
-      :description => plan.name+" Plan - AlphaDeals Subscription.",
+      :description => plan.name+" Plan - AlphaDeals Annual Subscription.",
       :frequency   => 1,
       :token       => paypal_payment_token,
       :period      => :yearly,

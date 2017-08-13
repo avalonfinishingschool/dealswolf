@@ -18,15 +18,15 @@
 </head>
 
 
-<%if controller_name == "registrations" || controller_name == "sessions" || controller_name == "passwords"%>
+<%if controller_name == "registrations" || controller_name == "sessions" || controller_name == "passwords" || controller_name == "confirmations" %>
   <body class="patternbackground">
 <% else %>
 <body>
 <%end%>
 
- <% flash.each do |key, value| %>
-        <div class="alert alert-warning"><%= value %></div>
-      <% end %>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-warning" style="margin: 0px;"><%= value %></div>
+  <% end %>
 
 
     <!--###############################-->

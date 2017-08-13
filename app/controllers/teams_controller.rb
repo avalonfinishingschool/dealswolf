@@ -299,7 +299,7 @@ class TeamsController < ApplicationController
     ppr = PayPal::Recurring.new(
       return_url: new_team_url(plan_id: plan.id),
       cancel_url: teams_url,
-      description: plan.name+" Plan - AlphaDeals Subscription.",
+      description: plan.name+" Plan - AlphaDeals Annual Subscription.",
       amount: plan.price.to_s+"0",
       currency: "USD"
     )

@@ -8,7 +8,6 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-#
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20170812030450) do
@@ -27,8 +26,8 @@ ActiveRecord::Schema.define(version: 20170812030450) do
     t.integer  "length"
     t.integer  "user_id"
     t.boolean  "done"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "person_id"
   end
 
@@ -43,8 +42,8 @@ ActiveRecord::Schema.define(version: 20170812030450) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
@@ -52,8 +51,8 @@ ActiveRecord::Schema.define(version: 20170812030450) do
   create_table "currencies", force: :cascade do |t|
     t.string   "country"
     t.string   "extension"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "deals", force: :cascade do |t|
@@ -68,8 +67,8 @@ ActiveRecord::Schema.define(version: 20170812030450) do
     t.integer  "user_id"
     t.integer  "team_id"
     t.integer  "stage_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "person_id"
     t.integer  "organization_id"
     t.boolean  "archived",        default: false
@@ -78,8 +77,8 @@ ActiveRecord::Schema.define(version: 20170812030450) do
   create_table "emails", force: :cascade do |t|
     t.integer  "person_id"
     t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -100,16 +99,16 @@ ActiveRecord::Schema.define(version: 20170812030450) do
     t.integer  "user_id"
     t.integer  "team_id"
     t.integer  "visibility_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "phone"
   end
 
   create_table "pending_invitations", force: :cascade do |t|
     t.integer  "team_id"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "people", force: :cascade do |t|
@@ -117,16 +116,16 @@ ActiveRecord::Schema.define(version: 20170812030450) do
     t.integer  "user_id"
     t.integer  "team_id"
     t.integer  "visibility_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "organization_id"
   end
 
   create_table "phones", force: :cascade do |t|
     t.integer  "person_id"
     t.string   "number"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "plans", force: :cascade do |t|
@@ -134,8 +133,8 @@ ActiveRecord::Schema.define(version: 20170812030450) do
     t.integer  "number_users"
     t.integer  "duration"
     t.decimal  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "rails_admin_histories", force: :cascade do |t|
@@ -145,16 +144,16 @@ ActiveRecord::Schema.define(version: 20170812030450) do
     t.string   "table"
     t.integer  "month",      limit: 2
     t.bigint   "year"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.index ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
   end
 
   create_table "stages", force: :cascade do |t|
     t.string   "name"
     t.integer  "team_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "ord"
   end
 
@@ -168,13 +167,14 @@ ActiveRecord::Schema.define(version: 20170812030450) do
     t.datetime "created_at"
     t.index ["context"], name: "index_taggings_on_context", using: :btree
     t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
     t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
     t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy", using: :btree
     t.index ["taggable_id"], name: "index_taggings_on_taggable_id", using: :btree
+    t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id", using: :btree
     t.index ["taggable_type"], name: "index_taggings_on_taggable_type", using: :btree
     t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type", using: :btree
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id", using: :btree
+    t.index ["tagger_type", "tagger_id"], name: "index_taggings_on_tagger_type_and_tagger_id", using: :btree
   end
 
   create_table "tags", force: :cascade do |t|
@@ -187,8 +187,8 @@ ActiveRecord::Schema.define(version: 20170812030450) do
     t.string   "name"
     t.integer  "user_id"
     t.integer  "plan_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.datetime "renewal_date"
     t.string   "slug"
     t.integer  "currency_id",                    default: 1
@@ -200,8 +200,8 @@ ActiveRecord::Schema.define(version: 20170812030450) do
 
   create_table "types", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -215,8 +215,15 @@ ActiveRecord::Schema.define(version: 20170812030450) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.integer  "failed_attempts",        default: 0,  null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.boolean  "notif"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -229,8 +236,8 @@ ActiveRecord::Schema.define(version: 20170812030450) do
 
   create_table "visibilities", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

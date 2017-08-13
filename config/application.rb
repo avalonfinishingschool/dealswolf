@@ -22,7 +22,7 @@ module Dreamdeal
     # config.i18n.default_locale = :de
     config.assets.precompile += ['back.js', 'back.css', 'front.js', 'front.css']
     config.assets.initialize_on_precompile = false
-    config.serve_static_assets = true
+    # config.serve_static_assets = true
     config.generators do |g|
       g.test_framework :rspec,
                        :fixtures => true,

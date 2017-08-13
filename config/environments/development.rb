@@ -22,18 +22,13 @@ Rails.application.configure do
     }
   else
     config.action_controller.perform_caching = false
-
     config.cache_store = :null_store
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.perform_caching = false
-
+  # config.action_mailer.raise_delivery_errors = false
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
-
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
@@ -42,14 +37,28 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: 'localhost:3000', port: 3000 }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address   => "smtp.mandrillapp.com",
-      :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
-      :user_name => "varun@alphadeal.co",
-      :password  => "nL5cS63slKRZ0yzpQPjAWQ", # SMTP password is any valid API key
-      :domain => 'heroku.com' # your domain to identify your server when connecting
+    user_name:      ENV['smtp_username'],
+    password:       ENV['smtp_password'],
+    domain:         'localhost:3000',
+    address:        'smtp.gmail.com',
+    port:           '587',
+    authentication: :plain,
+    enable_starttls_auto: true
   }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #     :address   => "smtp.mandrillapp.com",
+  #     :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+  #     :user_name => "varun@alphadeal.co",
+  #     :password  => "nL5cS63slKRZ0yzpQPjAWQ", # SMTP password is any valid API key
+  #     :domain => 'heroku.com' # your domain to identify your server when connecting
+  # }
 
   config.after_initialize do
     Bullet.enable = false

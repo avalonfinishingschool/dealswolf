@@ -23,9 +23,10 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  # config.assets.compile = false
-  config.assets.compile = true
-  config.assets.digest = true
+  config.assets.compile = false
+  config.serve_static_files = true
+  # config.assets.compile = true
+  # config.assets.digest = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -57,7 +58,6 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "dreamdeal_#{Rails.env}"
-  config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -70,20 +70,36 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'dealswolf.herokuapp.com' }
+
+  config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: 'dealswolf.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.default :charset => "utf-8"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address   => "smtp.mandrillapp.com",
-      :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
-      :enable_starttls_auto => true, # detects and uses STARTTLS
-      :user_name => "varun@alphadeal.co",
-      :password  => "nL5cS63slKRZ0yzpQPjAWQ", # SMTP password is any valid API key
-      :authentication => 'login', # Mandrill supports 'plain' or 'login'
-      :domain => 'heroku.com' # your domain to identify your server when connecting
+    user_name:      'alphadeals.helpdesk@gmail.com', #ENV['smtp_username'],
+    password:       'avalon@123', #ENV['smtp_password'],
+    domain:         'dealswolf.herokuapp.com',
+    address:        'smtp.gmail.com',
+    port:           '587',
+    authentication: :plain,
+    enable_starttls_auto: true
   }
+  # config.action_mailer.default_url_options = { :host => 'dealswolf.herokuapp.com' }
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = false
+
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #     :address   => "smtp.mandrillapp.com",
+  #     :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+  #     :enable_starttls_auto => true, # detects and uses STARTTLS
+  #     :user_name => "varun@alphadeal.co",
+  #     :password  => "nL5cS63slKRZ0yzpQPjAWQ", # SMTP password is any valid API key
+  #     :authentication => 'login', # Mandrill supports 'plain' or 'login'
+  #     :domain => 'heroku.com' # your domain to identify your server when connecting
+  # }
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
