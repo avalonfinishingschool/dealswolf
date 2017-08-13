@@ -72,7 +72,7 @@ Rails.application.configure do
 
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'dealswolf.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'alphadeal.co' } #'dealswolf.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
@@ -80,7 +80,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name:      'alphadeals.helpdesk@gmail.com', #ENV['smtp_username'],
     password:       'avalon@123', #ENV['smtp_password'],
-    domain:         'dealswolf.herokuapp.com',
+    domain:         'alphadeal.co', #'dealswolf.herokuapp.com',
     address:        'smtp.gmail.com',
     port:           '587',
     authentication: :plain,
