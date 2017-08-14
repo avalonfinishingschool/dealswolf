@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-  validates_presence_of :name, :plan_id
+  validates_presence_of :organization, :name, :plan_id, :currency_id
   has_and_belongs_to_many :users, :join_table => :users_teams
   belongs_to :creator, class_name: "User", foreign_key: :user_id, optional:true
   attr_accessor :paypal_payment_token
