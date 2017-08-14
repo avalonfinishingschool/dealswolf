@@ -79,7 +79,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     user_name:      'alphadeals.helpdesk@gmail.com', #ENV['smtp_username'],
-    password:       'avalon@123', #ENV['smtp_password'],
+    password:       'avalon@1234', #ENV['smtp_password'],
     domain:         'alphadeal.co', #'dealswolf.herokuapp.com',
     address:        'smtp.gmail.com',
     port:           '587',

@@ -4,9 +4,9 @@ class MemberMailer < ApplicationMailer
 		@email = email
 		@team_name = team_name
 		@team_creator = team_owner
-		mail :subject => "AlphaDeal - You have been added to #{@team_name} by #{@team_owner}",
+		mail :subject => "AlphaDeal - You have been added to #{@team_name} by #{@team_creator}",
 			:to => email,
-			:from => "support@alphadeal.co",
+			:from =>  "alphadeals.helpdesk@gmail.com", #"support@alphadeal.co",
 			:template_name => 'invite'
 	end
 
@@ -17,7 +17,7 @@ class MemberMailer < ApplicationMailer
 		@team_creator = team_owner
 	    mail :subject => "AlphaDeal - You have been invited to join #{@team_name} by #{@team_creator}",
 	         :to      => email,
-	         :from    => "support@alphadeal.co",
+	         :from    => "alphadeals.helpdesk@gmail.com", #"support@alphadeal.co",
 	         :template_name => 'welcome'
 	end
 end

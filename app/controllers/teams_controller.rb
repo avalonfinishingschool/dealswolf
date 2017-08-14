@@ -24,7 +24,6 @@ class TeamsController < ApplicationController
     redirect_to team_deals_url(@team)
   end
 
-
   def eagleview
     @members = @team.users
     gon.won = @team.deals.where(:status => "Won").count
