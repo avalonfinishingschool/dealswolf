@@ -58,7 +58,7 @@ Rails.application.configure do
     port: 587,
     enable_starttls_auto: true,
     format: :html,
-    from: 'Alphadeal <support@alphadeal.co>'
+    from: 'AlphaDeal <support@alphadeal.co>'
   }
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = {
