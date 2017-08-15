@@ -9,6 +9,3 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
-
-smtp_username: "alphadeals.helpdesk@gmail.com"
-smtp_password: "avalon@1234"

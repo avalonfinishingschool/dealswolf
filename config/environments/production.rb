@@ -75,16 +75,15 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'alphadeal.co' } #'dealswolf.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default :charset => "utf-8"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name:      'alphadeals.helpdesk@gmail.com', #ENV['smtp_username'],
-    password:       'avalon@1234', #ENV['smtp_password'],
-    domain:         'alphadeal.co', #'dealswolf.herokuapp.com',
-    address:        'smtp.gmail.com',
-    port:           '587',
-    authentication: :plain,
-    enable_starttls_auto: true
+    user_name: 'SMTP_Injection',
+    password: '956081f0d82807d4078bb4140b8d0dc00a244fd5',
+    address: 'smtp.sparkpostmail.com',
+    port: 587,
+    enable_starttls_auto: true,
+    format: :html,
+    from: 'support@alphadeal.co'
   }
   # config.action_mailer.default_url_options = { :host => 'dealswolf.herokuapp.com' }
   # config.action_mailer.perform_deliveries = true
