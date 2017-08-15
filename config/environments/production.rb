@@ -83,7 +83,7 @@ Rails.application.configure do
     port: 587,
     enable_starttls_auto: true,
     format: :html,
-    from: 'support@alphadeal.co'
+    from: 'Alphadeal <support@alphadeal.co>'
   }
   # config.action_mailer.default_url_options = { :host => 'dealswolf.herokuapp.com' }
   # config.action_mailer.perform_deliveries = true

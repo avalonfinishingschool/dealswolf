@@ -10,7 +10,7 @@ config.scoped_views = true
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'support@alphadeal.co'
+  config.mailer_sender = 'Alphadeal <support@alphadeal.co>'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
