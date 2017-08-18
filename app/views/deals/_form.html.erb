@@ -69,7 +69,7 @@
                     <div class="input-group input-group-md">
                         <span class="input-group-addon" style="color:black;"><%= @team.currency.extension %></span>
                         <div class="icon-addon addon-md">
-                            <input type="number" step="1" class="numeric integer optional form-control" name="deal[value]" id="deal_value">
+                            <input type="number" step="1" class="numeric integer optional form-control" name="deal[value]" id="deal_value" value="<%= @deal.value if @deal.value.present? %>">
                         </div>
                     </div>
                 </div>
