@@ -15,6 +15,9 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
+    unless current_user.owned_team.present?
+      @plan_id = Plan.first.id
+    end
     render :layout => "app-small-nav"
   end
 
@@ -256,8 +259,8 @@ class TeamsController < ApplicationController
 
       else
 
-        flash[:notice] = @team.errors.full_messages.join(' ')
-        format.html { render layout: 'app-small-nav', action: 'new'}
+        # flash[:notice] = @team.errors.full_messages.join(' ')
+        format.html { redirect_to teams_path, :notice => @team.errors.full_messages.join(' ') } #render layout: 'app-small-nav', action: 'new'}
         format.json { render json: @team.errors, status: :unprocessable_entity }
       end
     end
