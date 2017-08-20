@@ -33,11 +33,15 @@ class Team < ApplicationRecord
       :token       => paypal_payment_token,
       :period      => :yearly,
       :payer_id    => paypal_customer_token,
-      :start_at    => Time.zone.now
+      :start_at    => Date.today,
+      :outstanding     => :next_billing,
+      :trial_length    => 14,
+      :trial_period    => :daily,
+      :trial_frequency => 1
     })
 
-    response = pp.create_recurring_profile
-    self.paypal_recurring_profile_token = response.profile_id
+    res = pp.create_recurring_profile
+    self.paypal_recurring_profile_token = res.profile_id
     self.renewal_date = DateTime.now + 1.year
     save!
     # else
