@@ -15,15 +15,15 @@ class Team < ApplicationRecord
   belongs_to :currency
   
   def save_with_paypal_payment
-    ppr = PayPal::Recurring.new(
-      token: paypal_payment_token,
-      payer_id: paypal_customer_token,
-      description: plan.name+" Plan - AlphaDeals Annual Subscription.",
-      amount: plan.price.to_s+"0",
-      currency: "USD"
-    )
-    response = ppr.request_payment
-    raise response.errors.inspect if response.errors.present?
+    # ppr = PayPal::Recurring.new(
+    #   token: paypal_payment_token,
+    #   payer_id: paypal_customer_token,
+    #   description: plan.name+" Plan - AlphaDeals Annual Subscription.",
+    #   amount: plan.price.to_s+"0",
+    #   currency: "USD"
+    # )
+    # response = ppr.request_payment
+    # raise response.errors.inspect if response.errors.present?
     # if response.approved?
     pp = PayPal::Recurring.new({
       :amount      => plan.price.to_s+"0",
@@ -35,14 +35,14 @@ class Team < ApplicationRecord
       :payer_id    => paypal_customer_token,
       :start_at    => Time.zone.now,
       :outstanding     => :next_billing,
-      :trial_length    => 7,
+      :trial_length    => 1,
       :trial_period    => :daily,
       :trial_frequency => 1
     })
 
     res = pp.create_recurring_profile
     self.paypal_recurring_profile_token = res.profile_id
-    self.renewal_date = DateTime.now + 1.year
+    self.renewal_date = DateTime.now + 7.days + 1.year
     save!
     # else
 
