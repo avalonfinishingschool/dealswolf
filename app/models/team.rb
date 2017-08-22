@@ -35,7 +35,7 @@ class Team < ApplicationRecord
       :payer_id    => paypal_customer_token,
       :start_at    => Time.zone.now,
       :outstanding     => :next_billing,
-      :trial_length    => 1,
+      :trial_length    => 7,
       :trial_period    => :daily,
       :trial_frequency => 1
     })
