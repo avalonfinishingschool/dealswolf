@@ -72,7 +72,7 @@
             	<h3 class="panel-title">Actions</h3>
             </div>
             <div class="panel-body">
-            	<%= link_to (raw("<div class='tile-title tile-red'><div class='icon'><i class='entypo-key'></i><h3>Destroy Team</h3></div><div class='title'><h3>(This cannot be undone)</h3><br/></div></div>")), @team, :method => :delete, data: { :confirm => "Are you sure? This will delete everything!" } %>
+            	<%= link_to (raw("<div class='tile-title tile-red'><div class='icon'><i class='entypo-key'></i><h3>Destroy Team</h3><h3><b>(Cancel Subscription)</b></h3></div><div class='title'><h3>(This cannot be undone)</h3><br/></div></div>")), @team, :method => :delete, data: { :confirm => "Are you sure? This will delete everything!" } %>
 			</div>
 		</div>
 	</div>
